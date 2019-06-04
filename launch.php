@@ -274,7 +274,7 @@
 					</td>
 				</tr>
 				<tr>
-				<?php}?>
+				<?php }?>
 					
 				<?php if(strpos($_GET["role"], "business-manager") !== false){?>	
 					<th><h2>Business<br/>Managers</h2></th>
