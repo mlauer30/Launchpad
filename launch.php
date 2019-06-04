@@ -237,83 +237,82 @@
 				<?php if(strpos($_GET["role"], "recruiter") !== false){?>	
 					<th><h2><br/>Recruiters</h2></th>
 					<td>
-						<a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
-							<div id="ec_recruiting_logo" class="icon_bg"></div>
-							<p>Recruiting Site</p>
-						</a>
+					<a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
+					<div id="ec_recruiting_logo" class="icon_bg"></div>
+					<p>Recruiting Site</p>
+					</a>
 					</td>
 					<td>
-						<a href="https://source.jobvite.com/TalentNetwork/common/sso.html?from=google&stage=discovery&domain=evanschambers.com">
-							<div id="jobvite_logo" class="icon_bg"></div>
-							<p>Jobvite</p>
-						</a>
+					<a href="https://source.jobvite.com/TalentNetwork/common/sso.html?from=google&stage=discovery&domain=evanschambers.com">
+					<div id="jobvite_logo" class="icon_bg"></div>
+					<p>Jobvite</p>
+					</a>
 					</td>
 					<td>
-						<a href="http://hiring.monster.com/">
-							<div id="monster_logo" class="icon_bg"></div>
-							<p>Monster</p>
-						</a>
+					<a href="http://hiring.monster.com/">
+					<div id="monster_logo" class="icon_bg"></div>
+					<p>Monster</p>
+					</a>
 					</td>
 					<td>
-						<a href="https://ccesc2.gdit.com/dana-na/auth/url_28/welcome.cgi">
-							<div id="i2s_logo" class="icon_bg"></div>
-							<p>GD i2S Portal</p>
-						</a>
+					<a href="https://ccesc2.gdit.com/dana-na/auth/url_28/welcome.cgi">
+					<div id="i2s_logo" class="icon_bg"></div>
+					<p>GD i2S Portal</p>
+					</a>
 					</td>
 					<td>
-						<a href="" onclick="alert('URL not yet added'); return false;">
-							<div id="referrals_admin_logo" class="icon_bg"></div>
-							<p>Referrals Admin</p>
-						</a>
+					<a href="" onclick="alert('URL not yet added'); return false;"
+					<div id="referrals_admin_logo" class="icon_bg"></div>
+					<p>Referrals Admin</p>
+					</a>
 					</td>
 					<td>
-						&nbsp;
+					&nbsp;
 					</td>
 					<td>
-						&nbsp;
+					&nbsp;
 					</td>
-				</tr>
-				<tr>
-				<?php}?>
+					</tr>
+					<tr>					
+				<?php }?>		
 					
 				<?php if(strpos($_GET["role"], "business-manager") !== false){?>	
 					<th><h2>Business<br/>Managers</h2></th>
 					<td>
-						<a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
-							<div id="ec_bd_logo" class="icon_bg"></div>
-							<p>BD Site</p>
-						</a>
+					<a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
+					<div id="ec_bd_logo" class="icon_bg"></div>
+					<p>BD Site</p>
+					</a>
 					</td>
 					<td>
-						<a href="https://ectech.basecamphq.com/clients">
-							<div id="basecamp_logo" class="icon_bg"></div>
-							<p>Basecamp</p>
-						</a>
+					<a href="https://ectech.basecamphq.com/clients">
+					<div id="basecamp_logo" class="icon_bg"></div>
+					<p>Basecamp</p>
+					</a>
 					</td>
 					<td>
-						<a href="https://ectech.highrisehq.com/account">
-							<div id="highrise_logo" class="icon_bg"></div>
-							<p>Highrise</p>
-						</a>
+					<a href="https://ectech.highrisehq.com/account">
+					<div id="highrise_logo" class="icon_bg"></div>
+					<p>Highrise</p>
+					</a>
 					</td>
 					<td>
-						<a href="https://www.input.com/login/loginPage.cfm?">
-							<div id="input_logo" class="icon_bg"></div>
-							<p>Input</p>
-						</a>
+					<a href="https://www.input.com/login/loginPage.cfm?">
+					<div id="input_logo" class="icon_bg"></div>
+					<p>Input</p>
+					</a>
 					</td>
 					<td>
-						&nbsp;
+					&nbsp;
 					</td>
 					<td>
-						&nbsp;
+					&nbsp;
 					</td>
 					<td>
-						&nbsp;
+					&nbsp;
 					</td>
-				</tr>
-				<?php }?>
-				
+					</tr>					
+				<?php }?>				
 				<!--
 				<tr>
 					<th><h2><br/>Marketing</h2></th>
