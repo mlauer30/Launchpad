@@ -314,12 +314,13 @@
 					</tr>					
 				<?php }?>	
 				
-				<?php
-					$role = "";
-					if(strpos(isset($_GET["role"]), "recruiter") === true){
-						recruiter();
-					}elseif(strpos(isset($_GET["role"]), "business-manager") === true){
-						businessManager();
+				<?php	
+					if(isset($_GET["role"])){
+						if(strpos($_GET["role"], "recruiter") !== false){
+							recruiter();
+						}elseif(strpos($_GET["role"], "business-manager") !== false){
+							businessManager();
+						}
 					}
 				?>
 				<!--
