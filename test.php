@@ -1,20 +1,36 @@
 <?php
-// index.php
-// ...
+	// index.php
+	// ...
 
-require 'vendor/autoload.php';
-use Auth0\SDK\Auth0;
+	require 'vendor/autoload.php';
+	use Auth0\SDK\Auth0;
 
-$auth0 = new Auth0([
-  'domain' => 'YOUR_DOMAIN',
-  'client_id' => 'YOUR_CLIENT_ID',
-  'client_secret' => 'YOUR_CLIENT_SECRET',
-  'redirect_uri' => 'https://YOUR_APP/callback',
-  'persist_id_token' => true,
-  'persist_access_token' => true,
-  'persist_refresh_token' => true,
-]);
+	$auth0 = new Auth0([
+  	'domain' => 'dev-matthewlauer.auth0.com',
+  	'client_id' => 'Pef23VmWTXPjYTak0rPxMfTHs7MtCqMy',
+  	'client_secret' => 'jM-srxz7wRI05z7qGaKblUqfIH3_b460rzbtauDo07P8h3PwAIztmBG3KSP1qeoz',
+  	'redirect_uri' => 'http://0.0.0.0:8000/launchpad/test.php',
+  	'persist_id_token' => true,
+  	'persist_access_token' => true,
+  	'persist_refresh_token' => true,
+	]);
+
+	$userInfo = $auth0->getUser();
+
+	if (!$userInfo) {
+    	// We have no user info
+    	// See below for how to add a login link
+	     <a href="login.php">Log In</a>
+	} else {
+    	// User is authenticated
+    	// See below for how to display user information
+	     $userInfo = $auth0->getUser();
+	     printf( 'Hello %s!', htmlspecialchars( $userInfo['name'] ) );
+	}	
+
 ?>
+
+
 
 <html>
 	<head>
