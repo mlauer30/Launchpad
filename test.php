@@ -261,7 +261,7 @@
 					</a>
 					</td>
 					<td>
-					<a href="" onclick="alert('URL not yet added'); return false;"
+					<a href="" onclick="alert('URL not yet added'); return false;">
 					<div id="referrals_admin_logo" class="icon_bg"></div>
 					<p>Referrals Admin</p>
 					</a>
