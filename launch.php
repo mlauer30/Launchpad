@@ -234,7 +234,7 @@
 					</td> -->
 				</tr>
 				<tr>
-				<?php if(strpos($_GET["role"], "recruiter") !== false){?>	
+				<?php $role = ""; if(strpos($_GET["role"], "recruiter") !== false){?>	
 					<th><h2><br/>Recruiters</h2></th>
 					<td>
 					<a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
