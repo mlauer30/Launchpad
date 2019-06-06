@@ -234,8 +234,6 @@
 					</td> -->
 				</tr>
 				<tr>
-				<?php 
-					$role = "";
 				<?php if(strpos($_GET["role"], "recruiter") !== false){?>	
 					<th><h2><br/>Recruiters</h2></th>
 					<td>
@@ -314,8 +312,7 @@
 					&nbsp;
 					</td>
 					</tr>					
-				<?php }?>
-				?>
+				<?php }?>				
 				<!--
 				<tr>
 					<th><h2><br/>Marketing</h2></th>
