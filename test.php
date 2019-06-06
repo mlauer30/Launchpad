@@ -316,9 +316,9 @@
 				
 				<?php
 					$role = "";
-					if(isset(strpos($_GET["role"], "recruiter") !== false)){
+					if(strpos(isset($_GET["role"]), "recruiter") !== false){
 						recruiter();
-					}elseif(isset(strpos($_GET["role"], "business-manager") !== false)){
+					}elseif(strpos(isset($_GET["role"]), "business-manager") !== false){
 						businessManager();
 					}
 				?>
