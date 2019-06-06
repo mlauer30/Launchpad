@@ -1,3 +1,21 @@
+<?php
+// index.php
+// ...
+
+require 'vendor/autoload.php';
+use Auth0\SDK\Auth0;
+
+$auth0 = new Auth0([
+  'domain' => 'YOUR_DOMAIN',
+  'client_id' => 'YOUR_CLIENT_ID',
+  'client_secret' => 'YOUR_CLIENT_SECRET',
+  'redirect_uri' => 'https://YOUR_APP/callback',
+  'persist_id_token' => true,
+  'persist_access_token' => true,
+  'persist_refresh_token' => true,
+]);
+?>
+
 <html>
 	<head>
 		<title></title>
