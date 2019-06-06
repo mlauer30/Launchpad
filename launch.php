@@ -274,8 +274,7 @@
 					echo '&nbsp;';
 					echo '</td>';
 					echo '</tr>';
-					echo '<tr>';
-					echo '<?php }?>';
+					echo '<tr>';					
 					?>
 				<?php }?>
 					
