@@ -235,83 +235,88 @@
 				</tr>
 				<tr>
 				<?php if(strpos($_GET["role"], "recruiter") !== false){?>	
-					<th><h2><br/>Recruiters</h2></th>
-					<td>
-						<a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
-							<div id="ec_recruiting_logo" class="icon_bg"></div>
-							<p>Recruiting Site</p>
-						</a>
-					</td>
-					<td>
-						<a href="https://source.jobvite.com/TalentNetwork/common/sso.html?from=google&stage=discovery&domain=evanschambers.com">
-							<div id="jobvite_logo" class="icon_bg"></div>
-							<p>Jobvite</p>
-						</a>
-					</td>
-					<td>
-						<a href="http://hiring.monster.com/">
-							<div id="monster_logo" class="icon_bg"></div>
-							<p>Monster</p>
-						</a>
-					</td>
-					<td>
-						<a href="https://ccesc2.gdit.com/dana-na/auth/url_28/welcome.cgi">
-							<div id="i2s_logo" class="icon_bg"></div>
-							<p>GD i2S Portal</p>
-						</a>
-					</td>
-					<td>
-						<a href="" onclick="alert('URL not yet added'); return false;">
-							<div id="referrals_admin_logo" class="icon_bg"></div>
-							<p>Referrals Admin</p>
-						</a>
-					</td>
-					<td>
-						&nbsp;
-					</td>
-					<td>
-						&nbsp;
-					</td>
-				</tr>
-				<tr>
+					<? php
+					echo '<th><h2><br/>Recruiters</h2></th>';
+					echo '<td>';
+					echo '<a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">';
+					echo '<div id="ec_recruiting_logo" class="icon_bg"></div>';
+					echo '<p>Recruiting Site</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '<a href="https://source.jobvite.com/TalentNetwork/common/sso.html?from=google&stage=discovery&domain=evanschambers.com">';
+					echo '<div id="jobvite_logo" class="icon_bg"></div>';
+					echo '<p>Jobvite</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '<a href="http://hiring.monster.com/">';
+					echo '<div id="monster_logo" class="icon_bg"></div>';
+					echo '<p>Monster</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '<a href="https://ccesc2.gdit.com/dana-na/auth/url_28/welcome.cgi">';
+					echo '<div id="i2s_logo" class="icon_bg"></div>';
+					echo '<p>GD i2S Portal</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '<a href="" onclick="alert('URL not yet added'); return false;">';
+					echo '<div id="referrals_admin_logo" class="icon_bg"></div>';
+					echo '<p>Referrals Admin</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '&nbsp;';
+					echo '</td>';
+					echo '<td>';
+					echo '&nbsp;';
+					echo '</td>';
+					echo '</tr>';
+					echo '<tr>';
+					echo '<?php }?>';
+					?>
 				<?php }?>
 					
 				<?php if(strpos($_GET["role"], "business-manager") !== false){?>	
-					<th><h2>Business<br/>Managers</h2></th>
-					<td>
-						<a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
-							<div id="ec_bd_logo" class="icon_bg"></div>
-							<p>BD Site</p>
-						</a>
-					</td>
-					<td>
-						<a href="https://ectech.basecamphq.com/clients">
-							<div id="basecamp_logo" class="icon_bg"></div>
-							<p>Basecamp</p>
-						</a>
-					</td>
-					<td>
-						<a href="https://ectech.highrisehq.com/account">
-							<div id="highrise_logo" class="icon_bg"></div>
-							<p>Highrise</p>
-						</a>
-					</td>
-					<td>
-						<a href="https://www.input.com/login/loginPage.cfm?">
-							<div id="input_logo" class="icon_bg"></div>
-							<p>Input</p>
-						</a>
-					</td>
-					<td>
-						&nbsp;
-					</td>
-					<td>
-						&nbsp;
-					</td>
-					<td>
-						&nbsp;
-					</td>
-				</tr>
+					<? php
+					echo '<th><h2>Business<br/>Managers</h2></th>';
+					echo '<td>';
+					echo '<a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">';
+					echo '<div id="ec_bd_logo" class="icon_bg"></div>';
+					echo '<p>BD Site</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '<a href="https://ectech.basecamphq.com/clients">';
+					echo '<div id="basecamp_logo" class="icon_bg"></div>';
+					echo '<p>Basecamp</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '<a href="https://ectech.highrisehq.com/account">';
+					echo '<div id="highrise_logo" class="icon_bg"></div>';
+					echo '<p>Highrise</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '<a href="https://www.input.com/login/loginPage.cfm?">';
+					echo '<div id="input_logo" class="icon_bg"></div>';
+					echo '<p>Input</p>';
+					echo '</a>';
+					echo '</td>';
+					echo '<td>';
+					echo '&nbsp;';
+					echo '</td>';
+					echo '<td>';
+					echo '&nbsp;';
+					echo '</td>';
+					echo '<td>';
+					echo '&nbsp;';
+					echo '</td>';
+					echo '</tr>';
+					?>
 				<?php }?>
 				
 				<!--
