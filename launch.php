@@ -1,7 +1,3 @@
-<?php
-	$role = "";
-?>
-
 <html>
 	<head>
 		<title></title>
@@ -238,7 +234,7 @@
 					</td> -->
 				</tr>
 				<tr>
-				<?php if(strpos($_GET["role"], "recruiter") !== false){?>	
+				<?php $role = ""; if(strpos($_GET["role"], "recruiter") !== false){?>	
 					<th><h2><br/>Recruiters</h2></th>
 					<td>
 					<a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
@@ -280,7 +276,7 @@
 					<tr>					
 				<?php }?>
 					
-				<?php if(strpos($_GET["role"], "business-manager") !== false){?>	
+				<?php $role = ""; if(strpos($_GET["role"], "business-manager") !== false){?>	
 					<th><h2>Business<br/>Managers</h2></th>
 					<td>
 					<a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
