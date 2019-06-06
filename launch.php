@@ -234,7 +234,9 @@
 					</td> -->
 				</tr>
 				<tr>
-				<?php $role = ""; if(strpos($_GET["role"], "recruiter") !== false){?>	
+				<?php 
+					$role = "";
+				<?php if(strpos($_GET["role"], "recruiter") !== false){?>	
 					<th><h2><br/>Recruiters</h2></th>
 					<td>
 					<a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
@@ -274,9 +276,9 @@
 					</td>
 					</tr>
 					<tr>					
-				<?php }?>
+				<?php }?>		
 					
-				<?php $role = ""; if(strpos($_GET["role"], "business-manager") !== false){?>	
+				<?php if(strpos($_GET["role"], "business-manager") !== false){?>	
 					<th><h2>Business<br/>Managers</h2></th>
 					<td>
 					<a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
@@ -313,7 +315,7 @@
 					</td>
 					</tr>					
 				<?php }?>
-				
+				?>
 				<!--
 				<tr>
 					<th><h2><br/>Marketing</h2></th>
