@@ -11,7 +11,7 @@
     'domain' => $domain,
     'client_id' => $id,
     'client_secret' => $secret,
-    'redirect_uri' => 'http://0.0.0.0:8000/launchpad/launch.php',
+    'redirect_uri' => 'http://ec2-100-25-44-194.compute-1.amazonaws.com/launchpad/launch.php',
     'persist_id_token' => true,
     'persist_access_token' => true,
     'persist_refresh_token' => true,
