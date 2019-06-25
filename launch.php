@@ -1,5 +1,5 @@
 <?php
-    /*require 'vendor/autoload.php';
+    require 'vendor/autoload.php';
     use Auth0\SDK\Auth0;
     use Auth0\SDK\API\Management;
 
@@ -21,7 +21,7 @@
     if (!$userInfo) {
         header('Location: login.php');
     } else {
-        // User is authenticated
+    /*    // User is authenticated
         $userInfo = $auth0->getUser();
         $curl = curl_init();
 
