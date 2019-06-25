@@ -1,6 +1,6 @@
 <?php
-    require 'vendor/autoload.php';
-    /*use Auth0\SDK\Auth0;
+    /*require 'vendor/autoload.php';
+    use Auth0\SDK\Auth0;
     use Auth0\SDK\API\Management;
 
     $domain = 'dev-n6562r4d.auth0.com';
