@@ -6,7 +6,7 @@
     $domain = 'dev-n6562r4d.auth0.com';
         $id = 'wQy3h3WeckKrUHh9E4Tcv08c5JadCoeN';
         $secret = '_-pljKGPUpULa1fzgfNAJeufnjx2m42Yg4x2k3hzAeUh9Vr48on-5xPFVkaRPbMN';
-
+        /*
     $auth0 = new Auth0([
     'domain' => $domain,
     'client_id' => $id,
@@ -16,7 +16,7 @@
     'persist_access_token' => true,
     'persist_refresh_token' => true,
     ]);
-    /*
+
     $userInfo = $auth0->getUser();
     if (!$userInfo) {
         header('Location: login.php');
