@@ -1,3 +1,89 @@
+<?php
+    require 'vendor/autoload.php';
+    use Auth0\SDK\Auth0;
+    use Auth0\SDK\API\Management;
+
+    $domain = 'dev-n6562r4d.auth0.com';
+        $id = 'wQy3h3WeckKrUHh9E4Tcv08c5JadCoeN';
+        $secret = '_-pljKGPUpULa1fzgfNAJeufnjx2m42Yg4x2k3hzAeUh9Vr48on-5xPFVkaRPbMN';
+
+    $auth0 = new Auth0([
+    'domain' => $domain,
+    'client_id' => $id,
+    'client_secret' => $secret,
+    'redirect_uri' => 'http://0.0.0.0:8000/launchpad/launch.php',
+    'persist_id_token' => true,
+    'persist_access_token' => true,
+    'persist_refresh_token' => true,
+    ]);
+
+    $userInfo = $auth0->getUser();
+    if (!$userInfo) {
+        header('Location: login.php');
+    } else {
+        // User is authenticated
+        $userInfo = $auth0->getUser();
+        $curl = curl_init();
+
+        curl_setopt_array($curl, array(
+                  CURLOPT_URL => "https://dev-n6562r4d.auth0.com/oauth/token",
+                  CURLOPT_RETURNTRANSFER => true,
+                  CURLOPT_ENCODING => "",
+                  CURLOPT_MAXREDIRS => 10,
+                  CURLOPT_TIMEOUT => 30,
+                  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+                  CURLOPT_CUSTOMREQUEST => "POST",
+                  CURLOPT_POSTFIELDS => "grant_type=client_credentials&client_id=" . $id . "&client_secret=" . $secret . "&audience=https://dev-n6562r4d.auth0.com/api/v2/",
+                  CURLOPT_HTTPHEADER => array(
+                    "content-type: application/x-www-form-urlencoded"
+                  ),
+                ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        $json = json_decode($response);
+
+        $actual_token = $json->access_token;
+
+        $curl = curl_init();
+        $access_token = $auth0->getIdToken();
+
+        curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://dev-n6562r4d.auth0.com/api/v2/users/" . $userInfo['sub'] . "/roles",
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_HTTPHEADER => array(
+                "authorization: Bearer " . $actual_token
+                ),
+            ));
+
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+
+        curl_close($curl);
+
+        $userRoleNames = "";
+        $userRolesArray = json_decode($response);
+        for ($x = 0; $x < count($userRolesArray); $x++) {
+            $userRoleNames .= $userRolesArray[$x]->name;
+            if($x < count($userRolesArray)-1){
+              $userRoleNames .= ", ";
+            }
+        }
+        /*$userRoleNames = implode("," , $userRolesArray->names);*/
+        if ($userRoleNames === "") {
+            $userRoleNames = 'employee';
+        }
+    }
+?>
+
 <html>
 	<head>
 		<title></title>
@@ -21,27 +107,27 @@
 			colgroup {
 				color:#335;
 			}
-			
+
 			header {
 				margin: 22px;
 			}
-			
+
 			header div#title {
-				float:left;	
+				float:left;
 				color: #1472b4;
 				font-size: 18px;
 				border-left: 1px solid #bbb;
 				padding: 3px 0 3px 10px;
-				margin-left: 10px;	
+				margin-left: 10px;
 			}
-			
+
 			header img { float:left; }
-		
+
 			header ul {
 				margin:0;
 				padding:0;
 				float:right;
-				
+
 			}
 			header ul li {
 				float: left;
@@ -49,11 +135,11 @@
 				font-size: 12px;
 				color: #555;
 				list-style:none;
-				
-				
+
+
 			}
 			h2 {
-				-webkit-transform: rotate(270deg);	
+				-webkit-transform: rotate(270deg);
 				-moz-transform: rotate(270deg);
 				-ms-transform: rotate(90deg);
 				-o-transform: rotate(90deg);
@@ -101,15 +187,15 @@
 				margin:0;
 				padding:0;
 			}
-			
+
 			div#main {
 				overflow:auto;
-				margin-bottom:90px;	
+				margin-bottom:90px;
 				vertical-align: middle;
 			}
-			
+
 			footer {
-				
+
 				background-color: #eee;
 				height: 40px;
 				position:fixed;
@@ -124,7 +210,7 @@
 			footer span {
 				color:#333;
 			}
-			
+
 			/* Images sprites */
 			td div.icon_bg {
 				height: 70px;
@@ -136,41 +222,44 @@
 			div#main td.icon_hover {
 				background: url('images/td_background.png') no-repeat -44px -40px;
 			}
-			
+
 			td a {
 				color: #555;
 			}
-			
-			
-			
+
 			/* employees */
-			div#ec_mail_logo { background: url('images/icons_sprite.png') no-repeat -576px 0;}
-			div#ec_inside_logo { background: url('images/icons_sprite.png') no-repeat -433px -70px; }
-			div#tlo_logo { background: url('images/icons_sprite.png') no-repeat -506px -70px; }
-			div#hronline_logo { background: url('images/icons_sprite.png') no-repeat -576px -70px; }
-			div#referrals_logo { background: url('images/icons_sprite.png') no-repeat -720px -70px; }
-			div#share411_logo { background: url('images/icons_sprite.png') no-repeat -650px -70px; }
-			div#watercooler_logo { background: url('images/icons_sprite.png') no-repeat -288px -70px; }
-			
+			div#ec_mail_logo { background: url('images/icons_sprite_2.png') no-repeat -576px 0;}
+			div#ec_inside_logo { background: url('images/icons_sprite_2.png') no-repeat -433px -70px; }
+			div#tlo_logo { background: url('images/icons_sprite_2.png') no-repeat -579px -70px; }
+			div#hronline_logo { background: url('images/icons_sprite_2.png') no-repeat -653px -70px; }
+			div#referrals_logo { background: url('images/icons_sprite_2.png') no-repeat -720px -70px; }
+			div#share411_logo { background: url('images/icons_sprite_2.png') no-repeat -650px -70px; }
+			div#watercooler_logo { background: url('images/icons_sprite_2.png') no-repeat -288px -70px; }
+
 			/* bd */
-			div#ec_bd_logo { background: url('images/icons_sprite.png') no-repeat -358px 0; }
-			div#basecamp_logo { background: url('images/icons_sprite.png') no-repeat -145px -0; }
-			div#highrise_logo { background: url('images/icons_sprite.png') no-repeat -72px -0; }
-			div#input_logo { background: url('images/icons_sprite.png') no-repeat -793px 0; }
+			div#ec_bd_logo { background: url('images/icons_sprite_2.png') no-repeat 0 -70px; }
+			div#basecamp_logo { background: url('images/icons_sprite_2.png') no-repeat -145px -0; }
+			div#highrise_logo { background: url('images/icons_sprite_2.png') no-repeat -72px -0; }
+			div#fbo_logo { background: url('images/icons_sprite_2.png') no-repeat -793px 0; }
+      div#contract_library { background: url('images/icons_sprite_2.png') no-repeat -433px 0; }
+      div#qms {background: url('images/icons_sprite_2.png') no-repeat -288px 0;}
+      div#contract_funding { background: url('images/icons_sprite_2.png') no-repeat -218px 0;}
+      div#qbr { background: url('images/icons_sprite_2.png') no-repeat -290px -70px; }
 
 			/* recruiting */
-			div#ec_recruiting_logo { background: url('images/icons_sprite.png') no-repeat -358px 0; }
-			div#jobvite_logo { background: url('images/icons_sprite.png') no-repeat -288px 0; }
-			div#monster_logo { background: url('images/icons_sprite.png') no-repeat -218px 0; }
-			div#i2s_logo { background: url('images/icons_sprite.png') no-repeat 0 -70px; }
-			div#referrals_admin_logo { background: url('images/icons_sprite.png') no-repeat -792px -70px; }
+			div#ec_recruiting_logo { background: url('images/icons_sprite_2.png') no-repeat -358px 0; }
+			/*div#jobvite_logo { background: url('images/icons_sprite_2.png') no-repeat -288px 0; }*/
+
+			/*#monster_logo { background: url('images/icons_sprite_2.png') no-repeat -218px 0; }*/
+			div#i2s_logo { background: url('images/icons_sprite_2.png') no-repeat 0 -70px; }
+			div#referrals_admin_logo { background: url('images/icons_sprite_2.png') no-repeat -792px -70px; }
 		</style>
 		<script src="scripts/jquery-1.5.1.min.js"></script>
-		
-		
+
+
 	</head>
 	<body>
-		<!-- 
+		<!--
 				  launch.htm
 				  evanschambers.com
 									 Created by Jamil Evans on 2011-10-07.
@@ -180,10 +269,8 @@
 			<img src="images/logo_ec_small.png"/>
 			<div id="title">Launchpad</div>
 			<ul>
-				<li>Jamil Evans (admin)</li>
-				<li><a href="#">Customize</a></li>
-				<li><a href="#">Administration</a></li>
-				<li><a href="#">Signout</a></li>
+				<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>
+				<li><a href="logout.php">Signout</a></li>
 			</ul>
 			<br style="clear:both" />
 		</header>
@@ -193,7 +280,7 @@
 				<tr>
 					<th><h2><br/>Employees</h2></th>
 					<td>
-						<a href="http://mail.evanschambers.com">							
+						<a href="http://mail.evanschambers.com">
 							<div id="ec_mail_logo" class="icon_bg"></div>
 							<p>EC Mail</p>
 						</a>
@@ -205,15 +292,15 @@
 						</a>
 					</td>
 					<td>
-						<a href="https://sites.google.com/a/evanschambers.com/ec-inside-new/home/timesheet">
+						<a href="https://te06.neosystems.net/DeltekTC/welcome.msv">
 							<div id="tlo_logo" class="icon_bg"></div>
 							<p>Time & Labor</p>
 						</a>
 					</td>
 					<td>
-						<a href="https://eservices.paychex.com/secure/">
+						<a href="https://neosystems.ultipro.com/Login.aspx ">
 							<div id="hronline_logo" class="icon_bg"></div>
-							<p>HR Online</p>
+							<p>UltiPro</p>
 						</a>
 					</td>
 					<td>
@@ -222,97 +309,100 @@
 							<p>Submit a Referral</p>
 						</a>
 					</td>
-					<td>
-						<a href="">
-							<div id="share411_logo" class="icon_bg"></div>
-							<p>Share411</p>
-						</a>
-					</td>
-					<!--<td>
-						<div id="watercooler_logo" class="icon_bg"></div>
-						<p>Water Cooler</p>
-					</td> -->
 				</tr>
 				<tr>
-				<?php if(strpos($_GET["role"], "recruiter") !== false){?>	
+				<?php function recruiter(){ ?>
 					<th><h2><br/>Recruiters</h2></th>
 					<td>
-					<a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
-					<div id="ec_recruiting_logo" class="icon_bg"></div>
-					<p>Recruiting Site</p>
-					</a>
+					       <a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
+					              <div id="ec_recruiting_logo" class="icon_bg"></div>
+					              <p>Recruiting Site</p>
+					       </a>
 					</td>
 					<td>
-					<a href="https://source.jobvite.com/TalentNetwork/common/sso.html?from=google&stage=discovery&domain=evanschambers.com">
-					<div id="jobvite_logo" class="icon_bg"></div>
-					<p>Jobvite</p>
-					</a>
+					       <a href="" onclick="alert('URL not yet added'); return false;">
+					              <div id="referrals_admin_logo" class="icon_bg"></div>
+					              <p>Referrals Admin</p>
+					       </a>
 					</td>
 					<td>
-					<a href="http://hiring.monster.com/">
-					<div id="monster_logo" class="icon_bg"></div>
-					<p>Monster</p>
-					</a>
+					       &nbsp;
 					</td>
 					<td>
-					<a href="https://ccesc2.gdit.com/dana-na/auth/url_28/welcome.cgi">
-					<div id="i2s_logo" class="icon_bg"></div>
-					<p>GD i2S Portal</p>
-					</a>
-					</td>
-					<td>
-					<a href="" onclick="alert('URL not yet added'); return false;"
-					<div id="referrals_admin_logo" class="icon_bg"></div>
-					<p>Referrals Admin</p>
-					</a>
-					</td>
-					<td>
-					&nbsp;
-					</td>
-					<td>
-					&nbsp;
-					</td>
-					</tr>
-					<tr>					
-				<?php }?>		
-					
-				<?php if(strpos($_GET["role"], "business-manager") !== false){?>	
+					       &nbsp;
+          </td>
+          <td>
+                 &nbsp;
+          </td>
+				</tr>
+				<tr>
+				<?php }?>
+				<?php function businessManager(){ ?>
 					<th><h2>Business<br/>Managers</h2></th>
-					<td>
-					<a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
-					<div id="ec_bd_logo" class="icon_bg"></div>
-					<p>BD Site</p>
-					</a>
+
+          <td>
+					       <a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
+					              <div id="ec_bd_logo" class="icon_bg"></div>
+					              <p>BD Site</p>
+					       </a>
 					</td>
 					<td>
-					<a href="https://ectech.basecamphq.com/clients">
-					<div id="basecamp_logo" class="icon_bg"></div>
-					<p>Basecamp</p>
-					</a>
+					       <a href="https://ectech.basecamphq.com/clients">
+					              <div id="basecamp_logo" class="icon_bg"></div>
+					              <p>Basecamp</p>
+					       </a>
 					</td>
 					<td>
-					<a href="https://ectech.highrisehq.com/account">
-					<div id="highrise_logo" class="icon_bg"></div>
-					<p>Highrise</p>
-					</a>
+					       <a href="https://ectech.highrisehq.com/account">
+					              <div id="highrise_logo" class="icon_bg"></div>
+					              <p>Highrise</p>
+					       </a>
 					</td>
 					<td>
-					<a href="https://www.input.com/login/loginPage.cfm?">
-					<div id="input_logo" class="icon_bg"></div>
-					<p>Input</p>
-					</a>
+					       <a href="https://www.fbo.gov/">
+					              <div id="fbo_logo" class="icon_bg"></div>
+					              <p>FedBizOpps</p>
+					       </a>
 					</td>
-					<td>
-					&nbsp;
-					</td>
-					<td>
-					&nbsp;
-					</td>
-					<td>
-					&nbsp;
-					</td>
-					</tr>					
-				<?php }?>				
+          <td>
+                  <a href="https://sites.google.com/a/evanschambers.com/ec-quality-management-system/">
+                        <div id="qms" class="icon_bg"></div>
+                        <p>Quality Mgmt</p>
+                  </a>
+          </td>
+
+         <td>
+               <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4">
+                    <div id="contract_funding" class="icon_bg"></div>
+                    <p>Contract Funding</p>
+               </a>
+          </td>
+          <td>
+                <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f">
+                    <div id="contract_library" class="icon_bg"></div>
+                    <p>Contract Library</p>
+                </a>
+          </td>
+          <td>
+                <a href=" https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ">
+                    <div id="qbr" class="icon_bg"></div>
+                    <p>Program Reviews</p>
+                </a>
+          </td>
+        </tr>
+				<?php }?>
+				<?php
+              if ($userRoleNames) {
+                  if (strpos($userRoleNames, "recruiter") !== false) {
+                      recruiter();
+                  }
+                  if (strpos($userRoleNames, "business-manager") !== false) {
+                      businessManager();
+                  }
+              }
+
+        ?>
+
 				<!--
 				<tr>
 					<th><h2><br/>Marketing</h2></th>
@@ -347,9 +437,9 @@
 			Version <a href="#">1.0a</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			8 Oct 2011
 		</footer>
-		
+
 		<script>
-		<!--	
+		<!--
 				$('div.icon_bg').hover(function(){
 					$(this).parent().parent().addClass('icon_hover');
 				}, function() {
