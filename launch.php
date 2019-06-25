@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php';
+    /*require 'vendor/autoload.php';
     use Auth0\SDK\Auth0;
     use Auth0\SDK\API\Management;
 
@@ -77,12 +77,11 @@
               $userRoleNames .= ", ";
             }
         }
-        /*$userRoleNames = implode("," , $userRolesArray->names);*/
         if ($userRoleNames === "") {
             $userRoleNames = 'employee';
         }
     }
-?>
+*/?>
 
 <html>
 	<head>
