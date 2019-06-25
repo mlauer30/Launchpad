@@ -1,12 +1,12 @@
 <?php
     require 'vendor/autoload.php';
-    use Auth0\SDK\Auth0;
+    /*use Auth0\SDK\Auth0;
     use Auth0\SDK\API\Management;
 
     $domain = 'dev-n6562r4d.auth0.com';
         $id = 'wQy3h3WeckKrUHh9E4Tcv08c5JadCoeN';
         $secret = '_-pljKGPUpULa1fzgfNAJeufnjx2m42Yg4x2k3hzAeUh9Vr48on-5xPFVkaRPbMN';
-        /*
+
     $auth0 = new Auth0([
     'domain' => $domain,
     'client_id' => $id,
