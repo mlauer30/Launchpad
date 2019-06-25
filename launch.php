@@ -16,12 +16,12 @@
     'persist_access_token' => true,
     'persist_refresh_token' => true,
     ]);
-
+    /*
     $userInfo = $auth0->getUser();
     if (!$userInfo) {
         header('Location: login.php');
     } else {
-    /*    // User is authenticated
+        // User is authenticated
         $userInfo = $auth0->getUser();
         $curl = curl_init();
 
