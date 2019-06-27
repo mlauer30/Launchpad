@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php';
+    require __DIR__ . '/auth0/vendor/autoload.php';
     use Auth0\SDK\Auth0;
     use Auth0\SDK\API\Management;
 
