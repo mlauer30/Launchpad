@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php';
+    /*require 'vendor/autoload.php';
     use Auth0\SDK\Auth0;
     use Auth0\SDK\API\Management;
 
@@ -88,12 +88,12 @@
 		<title></title>
 		<style>
 
-			body {
+			html, body {
 				font-family: Interstate-light;
 				margin: 0;
 				padding: 0;
 				background: url(images/background.gif)  #d5d5d5 repeat-x;
-				background-attachment:fixed;
+				/*background-attachment:fixed;*/
 			}
 			a {
 				text-decoration: none;
@@ -134,8 +134,6 @@
 				font-size: 12px;
 				color: #555;
 				list-style:none;
-
-
 			}
 			h2 {
 				-webkit-transform: rotate(270deg);
@@ -147,15 +145,19 @@
 				line-height: 24px;
 				font-size: 16px;
 				color:#999;
-				text-align: left;
 				font-weight:normal;
 				padding: 0;
 				margin: 0;
 			}
 			table {
 				border-collapse: collapse;
-				margin: auto auto;
-				padding-bottom:0px;
+				position: absolute;
+		    top: 50%;
+		    left: 50%;
+		    -moz-transform: translateX(-50%) translateY(-50%);
+		    -webkit-transform: translateX(-50%) translateY(-50%);
+		    transform: translateX(-50%) translateY(-60%);
+				padding-bottom: 50%
 			}
 			td {
 				font-size: 12px;
@@ -172,8 +174,8 @@
 				margin:0;
 				padding:0;
 			}
-			tr:last-child td, tr:last-child th {
-				border:none;
+			tr:last-child td, tr:last-child th{
+				border-bottom: none;
 				box-shadow: none;
 				-moz-box-shadow: none;
   				-webkit-box-shadow: none;
@@ -194,7 +196,6 @@
 			}
 
 			footer {
-
 				background-color: #eee;
 				height: 40px;
 				position:fixed;
@@ -227,31 +228,31 @@
 			}
 
 			/* employees */
-			div#ec_mail_logo { background: url('images/icons_sprite_2.png') no-repeat -576px 0;}
-			div#ec_inside_logo { background: url('images/icons_sprite_2.png') no-repeat -433px -70px; }
-			div#tlo_logo { background: url('images/icons_sprite_2.png') no-repeat -579px -70px; }
-			div#hronline_logo { background: url('images/icons_sprite_2.png') no-repeat -653px -70px; }
-			div#referrals_logo { background: url('images/icons_sprite_2.png') no-repeat -720px -70px; }
-			div#share411_logo { background: url('images/icons_sprite_2.png') no-repeat -650px -70px; }
-			div#watercooler_logo { background: url('images/icons_sprite_2.png') no-repeat -288px -70px; }
+			div#ec_mail_logo { background: url('images/icons_sprite_3.png') no-repeat -576px 0;}
+			div#ec_inside_logo { background: url('images/icons_sprite_3.png') no-repeat -433px -70px; }
+			div#tlo_logo { background: url('images/icons_sprite_3.png') no-repeat -579px -70px; }
+			div#hronline_logo { background: url('images/icons_sprite_3.png') no-repeat -653px -70px; }
+			div#referrals_logo { background: url('images/icons_sprite_3.png') no-repeat -720px -70px; }
+			div#share411_logo { background: url('images/icons_sprite_3.png') no-repeat -650px -70px; }
+			div#watercooler_logo { background: url('images/icons_sprite_3.png') no-repeat -288px -70px; }
 
 			/* bd */
-			div#ec_bd_logo { background: url('images/icons_sprite_2.png') no-repeat 0 -70px; }
-			div#basecamp_logo { background: url('images/icons_sprite_2.png') no-repeat -145px -0; }
-			div#highrise_logo { background: url('images/icons_sprite_2.png') no-repeat -72px -0; }
-			div#fbo_logo { background: url('images/icons_sprite_2.png') no-repeat -793px 0; }
-      div#contract_library { background: url('images/icons_sprite_2.png') no-repeat -433px 0; }
-      div#qms {background: url('images/icons_sprite_2.png') no-repeat -288px 0;}
-      div#contract_funding { background: url('images/icons_sprite_2.png') no-repeat -218px 0;}
-      div#qbr { background: url('images/icons_sprite_2.png') no-repeat -290px -70px; }
-
+			div#ec_bd_logo { background: url('images/icons_sprite_3.png') no-repeat 0 -70px; }
+			div#basecamp_logo { background: url('images/icons_sprite_3.png') no-repeat -145px -0; }
+			div#highrise_logo { background: url('images/icons_sprite_3.png') no-repeat -72px -0; }
+			div#fbo_logo { background: url('images/icons_sprite_3.png') no-repeat -793px 0; }
+      div#contract_library { background: url('images/icons_sprite_3.png') no-repeat -433px 0; }
+      div#qms {background: url('images/icons_sprite_3.png') no-repeat -288px 0;}
+      div#contract_funding { background: url('images/icons_sprite_3.png') no-repeat -218px 0;}
+      div#qbr { background: url('images/icons_sprite_3.png') no-repeat -290px -70px; }
+			div#applicant_stack { background: url('images/icons_sprite_3.png') no-repeat -221px -70px; }
 			/* recruiting */
-			div#ec_recruiting_logo { background: url('images/icons_sprite_2.png') no-repeat -358px 0; }
-			/*div#jobvite_logo { background: url('images/icons_sprite_2.png') no-repeat -288px 0; }*/
+			div#ec_recruiting_logo { background: url('images/icons_sprite_3.png') no-repeat -358px 0; }
+			/*div#jobvite_logo { background: url('images/icons_sprite_3.png') no-repeat -288px 0; }*/
 
-			/*#monster_logo { background: url('images/icons_sprite_2.png') no-repeat -218px 0; }*/
-			div#i2s_logo { background: url('images/icons_sprite_2.png') no-repeat 0 -70px; }
-			div#referrals_admin_logo { background: url('images/icons_sprite_2.png') no-repeat -792px -70px; }
+			/*#monster_logo { background: url('images/icons_sprite_3.png') no-repeat -218px 0; }*/
+			div#i2s_logo { background: url('images/icons_sprite_3.png') no-repeat -154px -70px; }
+			div#referrals_admin_logo { background: url('images/icons_sprite_3.png') no-repeat -792px -70px; }
 		</style>
 		<script src="scripts/jquery-1.5.1.min.js"></script>
 
@@ -268,13 +269,15 @@
 			<img src="images/logo_ec_small.png"/>
 			<div id="title">Launchpad</div>
 			<ul>
-				<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>
+				<!--<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>-->
 				<li><a href="logout.php">Signout</a></li>
 			</ul>
 			<br style="clear:both" />
 		</header>
 		<div id="main">
-			<table border="0">
+
+    <form id="trArray">
+			<table width = "25%" border="0" cellspacing="0" cellpadding="0">
 				<colgroup span="2" style="font-size: 20px;"></colgroup>
 				<tr>
 					<th><h2><br/>Employees</h2></th>
@@ -309,8 +312,9 @@
 						</a>
 					</td>
 				</tr>
+
+				<?php /*function recruiter(){ */?>
 				<tr>
-				<?php function recruiter(){ ?>
 					<th><h2><br/>Recruiters</h2></th>
 					<td>
 					       <a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
@@ -319,25 +323,29 @@
 					       </a>
 					</td>
 					<td>
+								<a href="https://www.applicantstack.com/login/">
+										<div id="applicant_stack" class="icon_bg"></div>
+										<p>Applicant Stack</p>
+								</a>
+					</td>
+					<td>
+								<a href="https://www.applicantstack.com/login/">
+										<div id="i2s_logo" class="icon_bg"></div>
+										<p>ITDAS PMO Portal</p>
+								</a>
+					</td>
+					<td>
 					       <a href="" onclick="alert('URL not yet added'); return false;">
 					              <div id="referrals_admin_logo" class="icon_bg"></div>
 					              <p>Referrals Admin</p>
 					       </a>
 					</td>
-					<td>
-					       &nbsp;
-					</td>
-					<td>
-					       &nbsp;
-          </td>
-          <td>
-                 &nbsp;
-          </td>
 				</tr>
 				<tr>
-				<?php }?>
-				<?php function businessManager(){ ?>
-					<th><h2>Business<br/>Managers</h2></th>
+				<?php /*}*/?>
+				<?php /*function businessManager(){*/ ?>
+
+					<td><h2>Business<br/>Managers</h2></td>
 
           <td>
 					       <a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
@@ -363,42 +371,47 @@
 					              <p>FedBizOpps</p>
 					       </a>
 					</td>
+					<td>
+								<a href="https://www.applicantstack.com/login/">
+										<div id="applicant_stack" class="icon_bg"></div>
+										<p>Applicant Stack</p>
+								</a>
+					</td>
           <td>
                   <a href="https://sites.google.com/a/evanschambers.com/ec-quality-management-system/">
                         <div id="qms" class="icon_bg"></div>
                         <p>Quality Mgmt</p>
                   </a>
           </td>
-
-         <td>
-               <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4">
-                    <div id="contract_funding" class="icon_bg"></div>
-                    <p>Contract Funding</p>
-               </a>
-          </td>
-          <td>
-                <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f">
-                    <div id="contract_library" class="icon_bg"></div>
-                    <p>Contract Library</p>
-                </a>
-          </td>
-          <td>
-                <a href=" https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ">
-                    <div id="qbr" class="icon_bg"></div>
-                    <p>Program Reviews</p>
-                </a>
-          </td>
+           <td>
+                 <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4">
+                      <div id="contract_funding" class="icon_bg"></div>
+                      <p>Contract Funding</p>
+                 </a>
+            </td>
+            <td>
+                  <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f">
+                      <div id="contract_library" class="icon_bg"></div>
+                      <p>Contract Library</p>
+                  </a>
+            </td>
+            <td>
+                  <a href="https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ">
+                      <div id="qbr" class="icon_bg"></div>
+                      <p>Program Reviews</p>
+                  </a>
+            </td>
         </tr>
-				<?php }?>
+				<?php /*}*/?>
 				<?php
-              if ($userRoleNames) {
+              /*if ($userRoleNames) {
                   if (strpos($userRoleNames, "recruiter") !== false) {
                       recruiter();
                   }
                   if (strpos($userRoleNames, "business-manager") !== false) {
                       businessManager();
                   }
-              }
+              }*/
 
         ?>
 
@@ -430,6 +443,7 @@
 				</tr>
 				-->
 			</table>
+		</form>
 		</div>
 		<footer>
 			<span>EC Launchpad</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -446,5 +460,18 @@
 				});
 		-->
 		</script>
+		<script>
+				for(var x = 1; x < $('tr').length; x++){
+					 var td = $('tr')[x];
+					 var prev = $('tr')[x - 1];
+						if($('tr')[x].children.length > $('tr')[x - 1].children.length){
+							var delta = $(td).children('td, th').length - $(prev).children('td, th').length;
+							var added = $(prev).children('td, th').length + delta;
+							for(var y = $(prev).children('td, th').length; y < added; y++)
+								$(prev).append("<td> &nbsp; </td>");
+						}
+				}
+		</script>
+
 	</body>
 </html>
