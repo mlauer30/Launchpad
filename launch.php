@@ -87,13 +87,12 @@
 	<head>
 		<title></title>
 		<style>
-
 			html, body {
 				font-family: Interstate-light;
 				margin: 0;
 				padding: 0;
 				background: url(images/background.gif)  #d5d5d5 repeat-x;
-				/*background-attachment:fixed;*/
+				background-attachment:fixed;
 			}
 			a {
 				text-decoration: none;
@@ -150,14 +149,10 @@
 				margin: 0;
 			}
 			table {
+				width: 100%;
 				border-collapse: collapse;
-				position: absolute;
-		    top: 50%;
-		    left: 50%;
-		    -moz-transform: translateX(-50%) translateY(-50%);
-		    -webkit-transform: translateX(-50%) translateY(-50%);
-		    transform: translateX(-50%) translateY(-60%);
-				padding-bottom: 50%
+				padding-top: 50%;
+			  overflow: scroll;
 			}
 			td {
 				font-size: 12px;
@@ -190,9 +185,7 @@
 			}
 
 			div#main {
-				overflow:auto;
-				margin-bottom:90px;
-				vertical-align: middle;
+				overflow: scroll;
 			}
 
 			footer {
@@ -251,7 +244,7 @@
 			/*div#jobvite_logo { background: url('images/icons_sprite_3.png') no-repeat -288px 0; }*/
 
 			/*#monster_logo { background: url('images/icons_sprite_3.png') no-repeat -218px 0; }*/
-			div#i2s_logo { background: url('images/icons_sprite_3.png') no-repeat -154px -70px; }
+			div#i2s_logo { background: url('images/icons_sprite_3.png') no-repeat -149px -70px; }
 			div#referrals_admin_logo { background: url('images/icons_sprite_3.png') no-repeat -792px -70px; }
 		</style>
 		<script src="scripts/jquery-1.5.1.min.js"></script>
@@ -275,9 +268,8 @@
 			<br style="clear:both" />
 		</header>
 		<div id="main">
-
-    <form id="trArray">
-			<table width = "25%" border="0" cellspacing="0" cellpadding="0">
+			<div>
+			<table>
 				<colgroup span="2" style="font-size: 20px;"></colgroup>
 				<tr>
 					<th><h2><br/>Employees</h2></th>
@@ -329,7 +321,7 @@
 								</a>
 					</td>
 					<td>
-								<a href="https://www.applicantstack.com/login/">
+								<a href="https://sites.google.com/evanschambers.com/itdaspmo/home">
 										<div id="i2s_logo" class="icon_bg"></div>
 										<p>ITDAS PMO Portal</p>
 								</a>
@@ -443,7 +435,6 @@
 				</tr>
 				-->
 			</table>
-		</form>
 		</div>
 		<footer>
 			<span>EC Launchpad</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
