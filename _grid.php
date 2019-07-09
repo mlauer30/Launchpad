@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php';
+    /*require 'vendor/autoload.php';
     use Auth0\SDK\Auth0;
     use Auth0\SDK\API\Management;
 
@@ -81,7 +81,7 @@
             $userRoleNames = 'employee';
         }
     }
-?>
+*/?>
 
 <html>
 	<head>
@@ -264,7 +264,7 @@
 			<img src="images/logo_ec_small.png"/>
 			<div id="title">Launchpad</div>
 			<ul>
-				<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>
+				<!--<li><?php/* echo $userInfo['name'] . " | role: " . $userRoleNames;*/?></li>-->
 				<li><a href="logout.php">Signout</a></li>
 			</ul>
 			<br style="clear:both" />
@@ -310,11 +310,11 @@
         </div>
       </div>
       </div>
-				<?php function recruiter(){ ?>
-          &nbsp;
-          <div class="row hr-row">
-             <hr>
-          </div>
+      &nbsp;
+      <div class="row hr-row" style='border-bottom: 1px solid #bbb; border-top: none;'>
+          <hr>
+      </div>
+				<?php /*function recruiter(){ */?>
 				<div class="row my-row">
           <div class="col-12 align-self-center col-md-1">
   					<h2>Recruiters</h2>
@@ -348,12 +348,12 @@
           </div>
         </div>
 		</div>
-      <?php }?>
-				<?php function businessManager(){ ?>
-          <div class="row hr-row">
-             <hr>
-          </div>
-          &nbsp;
+    <div class="row hr-row">
+       <hr>
+    </div>
+    &nbsp;
+      <?php /*}*/?>
+				<?php /*function businessManager(){*/ ?>
         <div class="row my-row">
           <div class="col-12 col-md-1">
             <h2>Business<br/>Managers</h2>
@@ -421,16 +421,16 @@
          </div>
        </div>
 
-				<?php }?>
+				<?php /*}*/?>
 				<?php
-              if ($userRoleNames) {
+              /*if ($userRoleNames) {
                   if (strpos($userRoleNames, "recruiter") !== false) {
                       recruiter();
                   }
                   if (strpos($userRoleNames, "business-manager") !== false) {
                       businessManager();
                   }
-              }
+              }*/
 
         ?>
 
