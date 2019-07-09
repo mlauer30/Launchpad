@@ -1,5 +1,5 @@
 <?php
-    /*require 'vendor/autoload.php';
+    require 'vendor/autoload.php';
     use Auth0\SDK\Auth0;
     use Auth0\SDK\API\Management;
 
@@ -81,7 +81,7 @@
             $userRoleNames = 'employee';
         }
     }
-*/?>
+?>
 
 <html>
 	<head>
@@ -313,7 +313,7 @@
 					</td>
 				</tr>
 
-				<?php /*function recruiter(){ */?>
+				<?php function recruiter(){ ?>
 				<tr>
 					<th><h2><br/>Recruiters</h2></th>
 					<td>
@@ -342,8 +342,8 @@
 					</td>
 				</tr>
 				<tr>
-				<?php /*}*/?>
-				<?php /*function businessManager(){*/ ?>
+				<?php }?>
+				<?php function businessManager(){ ?>
 
 					<td><h2>Business<br/>Managers</h2></td>
 
@@ -402,16 +402,16 @@
                   </a>
             </td>
         </tr>
-				<?php /*}*/?>
+				<?php }?>
 				<?php
-              /*if ($userRoleNames) {
+              if ($userRoleNames) {
                   if (strpos($userRoleNames, "recruiter") !== false) {
                       recruiter();
                   }
                   if (strpos($userRoleNames, "business-manager") !== false) {
                       businessManager();
                   }
-              }*/
+              }
 
         ?>
 
