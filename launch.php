@@ -269,7 +269,7 @@
 			<img src="images/logo_ec_small.png"/>
 			<div id="title">Launchpad</div>
 			<ul>
-				<!--<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>-->
+				<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>
 				<li><a href="logout.php">Signout</a></li>
 			</ul>
 			<br style="clear:both" />
