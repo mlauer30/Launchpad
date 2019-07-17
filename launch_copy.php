@@ -85,12 +85,6 @@
 
 <html>
 	<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<title></title>
 		<style>
 			html, body {
@@ -141,66 +135,63 @@
 				list-style:none;
 			}
 			h2 {
-				display: -webkit-transform: rotate(270deg);
-				display: -moz-transform: rotate(270deg);
-				display: -ms-transform: rotate(90deg);
-				display: -o-transform: rotate(90deg);
-				transform: rotate(270deg);*/
+				-webkit-transform: rotate(270deg);
+				-moz-transform: rotate(270deg);
+				-ms-transform: rotate(90deg);
+				-o-transform: rotate(90deg);
+				transform: rotate(270deg);
 				font-family: Interstate-light;
 				line-height: 24px;
 				font-size: 16px;
 				color:#999;
-        text-align: center;
 				font-weight:normal;
 				padding: 0;
 				margin: 0;
 			}
-      .rotate_header{
-        display: -webkit-transform: none;
-        display: -moz-transform: none;
-        display: -ms-transform: none;
-        display: -o-transform: none;
-        transform: none;
-        font-family: Interstate-light;
-        line-height: 24px;
-        font-size: 16px;
-        color:#999;
-        text-align: center;
-        font-weight:normal;
-        padding: 0;
-        margin: 0;
-      }
-
-			.my-col {
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				padding-top: 50%;
+			  overflow: scroll;
+			}
+			td {
 				font-size: 12px;
 				color: #555;
+				text-align: center;
+				border-bottom: 1px solid #bbb;
+				box-shadow: 0 2px 0 #efefef;
+				-moz-box-shadow: 0 2px 0 #efefef;
+  				-webkit-box-shadow: 0 2px 0 #efefef;
+				padding: 30px 25px 30px 25px;
+				vertical-align: middle;
 			}
-      .icon_hover{
-        background: url('images/td_background.png') no-repeat -60px -60px;
-      }
-      .my-col p{
-          color: #555;
-          padding: 0;
-          margin: 0;
-      }
-      .my-col a{
-        text-decoration: none;
-      }
-			.my-row{
-        height: 25%;
-        width: 100%;
-        align-items: center;
+			td p {
+				margin:0;
+				padding:0;
 			}
-      .hr-row{
-        height: auto;
-        border-bottom: 1px solid #bbb;
-        padding: 30px 25px 30px 25px;
+			tr:last-child td, tr:last-child th{
+				border-bottom: none;
+				box-shadow: none;
+				-moz-box-shadow: none;
+  				-webkit-box-shadow: none;
+			}
+			th {
+				border-bottom: 1px solid #bbb;
+				box-shadow: 0 2px 0 #efefef;
+				-moz-box-shadow: 0 2px 0 #efefef;
+  				-webkit-box-shadow: 0 2px 0 #efefef;
+				margin:0;
+				padding:0;
+			}
 
-      }
+			div#main {
+				overflow: scroll;
+			}
+
 			footer {
 				background-color: #eee;
-				height: 60px;
-				position: fixed;
+				height: 40px;
+				position:fixed;
 				bottom:0;
 				width: 100%;
 				font-size: 12px;
@@ -214,12 +205,19 @@
 			}
 
 			/* Images sprites */
-			.my-row div.icon_bg {
+			td div.icon_bg {
 				height: 70px;
 				width: 70px;
 				margin-bottom: 0;
 				display:inline-block;
 				clear:right;
+			}
+			div#main td.icon_hover {
+				background: url('images/td_background.png') no-repeat -44px -40px;
+			}
+
+			td a {
+				color: #555;
 			}
 
 			/* employees */
@@ -269,158 +267,133 @@
 			</ul>
 			<br style="clear:both" />
 		</header>
-		<div class="container">
-			<div class="row my-row">
-        <div class="col-12 align-self-center col-md-1 my-col">
-        <h2>Employees</h2>
-        &nbsp;
-        </div>
-        <div class="col-12 col-md-11 my-col">
-        <div class="row" >
-					<div class="col-3 col-lg-2 my-col">
+		<div id="main">
+			<div>
+			<table>
+				<colgroup span="2" style="font-size: 20px;"></colgroup>
+				<tr>
+					<th><h2><br/>Employees</h2></th>
+					<td>
 						<a href="http://mail.evanschambers.com">
 							<div id="ec_mail_logo" class="icon_bg"></div>
-							<p style="text-align: justify;">EC Mail</p>
+							<p>EC Mail</p>
 						</a>
-					</div>
-					<div class="col-3 col-lg-2 my-col">
+					</td>
+					<td>
 						<a href="https://sites.google.com/a/evanschambers.com/ec-inside-new/">
 							<div id="ec_inside_logo" class="icon_bg"></div>
 							<p>EC Inside</p>
 						</a>
-					</div>
-					<div class="col-3 col-lg-2 my-col">
+					</td>
+					<td>
 						<a href="https://te06.neosystems.net/DeltekTC/welcome.msv">
 							<div id="tlo_logo" class="icon_bg"></div>
 							<p>Time & Labor</p>
 						</a>
-					</div>
-					<div class="col-3 col-lg-2 my-col">
+					</td>
+					<td>
 						<a href="https://neosystems.ultipro.com/Login.aspx ">
 							<div id="hronline_logo" class="icon_bg"></div>
 							<p>UltiPro</p>
 						</a>
-					</div>
-					<div class="col-3 col-lg-2 my-col">
+					</td>
+					<td>
 						<a href="http://www.evanschambers.com/secure/login.php">
 							<div id="referrals_logo" class="icon_bg"></div>
 							<p>Submit a Referral</p>
 						</a>
-					</div>
-        </div>
-      </div>
-      </div>
+					</td>
+				</tr>
+
 				<?php function recruiter(){ ?>
-          &nbsp;
-          <div class="row hr-row">
-             <hr>
-          </div>
-				<div class="row my-row">
-          <div class="col-12 align-self-center col-md-1">
-  					<h2>Recruiters</h2>
-          </div>
-          <div class="col-12 col-md-11 my-col">
-          <div class="row" style="height: 40%;">
-  					<div class="col-lg-2 col-3 my-col">
-  					       <a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
-  					              <div id="ec_recruiting_logo" class="icon_bg"></div>
-  					              <p>Recruiting Site</p>
-  					       </a>
-  					</div>
-  					<div class="col-lg-2 col-3 my-col">
-  								<a href="https://www.applicantstack.com/login/">
-  										<div id="applicant_stack" class="icon_bg"></div>
-  										<p>Applicant Stack</p>
-  								</a>
-  					</div>
-  					<div class="col-lg-2 col-3 my-col">
-  								<a href="https://sites.google.com/evanschambers.com/idiv class="col my-col"aspmo/home">
-  										<div id="i2s_logo" class="icon_bg"></div>
-  										<p>ITDAS PMO Portal</p>
-  								</a>
-  					</div>
-  					<div class="col-lg-2 col-3 my-col">
-  					       <a href="" onclick="alert('URL not yet added'); return false;">
-  					              <div id="referrals_admin_logo" class="icon_bg"></div>
-  					              <p>Referrals Admin</p>
-  					       </a>
-  					</div>
-          </div>
-        </div>
-		</div>
-      <?php }?>
+				<tr>
+					<th><h2><br/>Recruiters</h2></th>
+					<td>
+					       <a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
+					              <div id="ec_recruiting_logo" class="icon_bg"></div>
+					              <p>Recruiting Site</p>
+					       </a>
+					</td>
+					<td>
+								<a href="https://www.applicantstack.com/login/">
+										<div id="applicant_stack" class="icon_bg"></div>
+										<p>Applicant Stack</p>
+								</a>
+					</td>
+					<td>
+								<a href="https://sites.google.com/evanschambers.com/itdaspmo/home">
+										<div id="i2s_logo" class="icon_bg"></div>
+										<p>ITDAS PMO Portal</p>
+								</a>
+					</td>
+					<td>
+					       <a href="" onclick="alert('URL not yet added'); return false;">
+					              <div id="referrals_admin_logo" class="icon_bg"></div>
+					              <p>Referrals Admin</p>
+					       </a>
+					</td>
+				</tr>
+				<tr>
+				<?php }?>
 				<?php function businessManager(){ ?>
-          <div class="row hr-row">
-             <hr>
-          </div>
-          &nbsp;
-        <div class="row my-row">
-          <div class="col-12 col-md-1">
-            <h2>Business<br/>Managers</h2>
-            &nbsp;
-          </div>
-          <div class="col-12 col-md-11 my-col">
-            <div class="row" style="height: 100%;">
-              <div class="col-3 col-lg-2 my-col">
-    					       <a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
-    					              <div id="ec_bd_logo" class="icon_bg"></div>
-    					              <p>BD Site</p>
-    					       </a>
-    					</div>
-    					<div class="col-3 col-lg-2 my-col">
-    					       <a href="https://ectech.basecamphq.com/clients">
-    					              <div id="basecamp_logo" class="icon_bg"></div>
-    					              <p>Basecamp</p>
-    					       </a>
-    					</div>
-    					<div class="col-3 col-lg-2 my-col">
-    					       <a href="https://ectech.highrisehq.com/account">
-    					              <div id="highrise_logo" class="icon_bg"></div>
-    					              <p>Highrise</p>
-    					       </a>
-    					</div>
-    					<div class="col-3 col-lg-2 my-col">
-    					       <a href="https://www.fbo.gov/">
-    					              <div id="fbo_logo" class="icon_bg"></div>
-    					              <p>FedBizOpps</p>
-    					       </a>
-    					</div>
-    					<div class="col-3 col-lg-2 my-col">
-    								<a href="https://www.applicantstack.com/login/">
-    										<div id="applicant_stack" class="icon_bg"></div>
-    										<p>Applicant Stack</p>
-    								</a>
-    					</div>
-              <div class="col-3 col-lg-2 my-col">
-                      <a href="https://sites.google.com/a/evanschambers.com/ec-quality-management-system/">
-                            <div id="qms" class="icon_bg"></div>
-                            <p>Quality Mgmt</p>
-                      </a>
-              </div>
-               <div class="col-3 col-lg-2 my-col">
-                     <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4">
-                          <div id="contract_funding" class="icon_bg"></div>
-                          <p>Contract Funding</p>
-                     </a>
-                </div>
-                <div class="col-3 col-lg-2 my-col">
-                      <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f">
-                          <div id="contract_library" class="icon_bg"></div>
-                          <p>Contract Library</p>
-                      </a>
-                </div>
-                <div class="col-3 col-lg-2 my-col">
-                      <a href="https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ">
-                          <div id="qbr" class="icon_bg"></div>
-                          <p>Program Reviews</p>
-                      </a>
-                </div>
-              </div>
-            </div>
 
-         </div>
-       </div>
+					<td><h2>Business<br/>Managers</h2></td>
 
+          <td>
+					       <a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
+					              <div id="ec_bd_logo" class="icon_bg"></div>
+					              <p>BD Site</p>
+					       </a>
+					</td>
+					<td>
+					       <a href="https://ectech.basecamphq.com/clients">
+					              <div id="basecamp_logo" class="icon_bg"></div>
+					              <p>Basecamp</p>
+					       </a>
+					</td>
+					<td>
+					       <a href="https://ectech.highrisehq.com/account">
+					              <div id="highrise_logo" class="icon_bg"></div>
+					              <p>Highrise</p>
+					       </a>
+					</td>
+					<td>
+					       <a href="https://www.fbo.gov/">
+					              <div id="fbo_logo" class="icon_bg"></div>
+					              <p>FedBizOpps</p>
+					       </a>
+					</td>
+					<td>
+								<a href="https://www.applicantstack.com/login/">
+										<div id="applicant_stack" class="icon_bg"></div>
+										<p>Applicant Stack</p>
+								</a>
+					</td>
+          <td>
+                  <a href="https://sites.google.com/a/evanschambers.com/ec-quality-management-system/">
+                        <div id="qms" class="icon_bg"></div>
+                        <p>Quality Mgmt</p>
+                  </a>
+          </td>
+           <td>
+                 <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4">
+                      <div id="contract_funding" class="icon_bg"></div>
+                      <p>Contract Funding</p>
+                 </a>
+            </td>
+            <td>
+                  <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f">
+                      <div id="contract_library" class="icon_bg"></div>
+                      <p>Contract Library</p>
+                  </a>
+            </td>
+            <td>
+                  <a href="https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ">
+                      <div id="qbr" class="icon_bg"></div>
+                      <p>Program Reviews</p>
+                  </a>
+            </td>
+        </tr>
 				<?php }?>
 				<?php
               if ($userRoleNames) {
@@ -437,33 +410,33 @@
 				<!--
 				<tr>
 					<th><h2><br/>Marketing</h2></th>
-					<div class="col my-col">
+					<td>
 						<img src="images/icon_ecsite.png"/><br/>
 						EC Marketing
-					</div>
-					<div class="col my-col">
+					</td>
+					<td>
 						<img src="images/icon_ecsite.png"/><br/>
 						Mailchimp
-					</div>
-					<div class="col my-col">
+					</td>
+					<td>
 						<img src="images/icon_ecsite.png"/><br/>
 						Google Analytics
-					</div>
-					<div class="col my-col">
+					</td>
+					<td>
 						<a href="https://www.smartsheet.com/b/openid/ga/evanschambers.com?gapp=505">
 						<img src="images/icon_ecsite.png"/><br/>
 						Smartsheet
 						</a>
-					</div>
-					<div class="col my-col">
+					</td>
+					<td>
 						<img src="images/icon_ecsite.png"/><br/>
 						Share411 Admin
-					</div>
+					</td>
 				</tr>
 				-->
+			</table>
 		</div>
-
-    <footer>
+		<footer>
 			<span>EC Launchpad</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			Version <a href="#">1.0a</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			8 Oct 2011
@@ -477,7 +450,7 @@
 					$(this).parent().parent().removeClass('icon_hover');
 				});
 		-->
-    </script>
+		</script>
 		<script>
 				for(var x = 1; x < $('tr').length; x++){
 					 var td = $('tr')[x];
@@ -490,25 +463,6 @@
 						}
 				}
 		</script>
-  <script>
-  var width = $('div.col-12').width();
-  function rotate(){
-     if(width > 400){
-       $('h2').addClass('rotate_header');
-
-     }else{
-        $('h2').removeClass('rotate_header');
-     }
-  }
-  $(document).ready(rotate());
-  </script>
-    <script>
-      var end = $('div').length;
-      var div = $('div')[end - 1];
-      for(x = 0; x < 13; x++){
-        $(div).append("&nbsp;<br/>");
-      }
-    </script>
 
 	</body>
 </html>
