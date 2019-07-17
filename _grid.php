@@ -493,7 +493,7 @@
   <script>
   var width = $('div.col-12').width();
   function rotate(){
-     if(width > 400){
+     if(width > 100){
        $('h2').addClass('rotate_header');
 
      }else{
