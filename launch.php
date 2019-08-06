@@ -178,10 +178,17 @@
       .icon_hover{
         background: url('images/td_background.png') no-repeat -60px -60px;
       }
+			.my-col li{
+				margin: 3px 0 0 15px;
+				font-size: 12px;
+				color: #555;
+				list-style:none;
+			}
       .my-col p{
           color: #555;
           padding: 0;
           margin: 0;
+					text-align: justify-all;
       }
       .my-col a{
         text-decoration: none;
@@ -191,7 +198,7 @@
         width: 100%;
         align-items: center;
 			}
-      .hr-row{
+      .hr-col{
         height: auto;
         border-bottom: 1px solid #bbb;
         padding: 30px 25px 30px 25px;
@@ -224,10 +231,10 @@
 
 			/* employees */
 			div#ec_mail_logo { background: url('images/icons_sprite_3.png') no-repeat -576px 0;}
-			div#ec_inside_logo { background: url('images/icons_sprite_3.png') no-repeat -433px -70px; }
+			div#ec_inside_logo { background: url('images/icons_sprite_3.png') no-repeat -430px -70px; }
 			div#tlo_logo { background: url('images/icons_sprite_3.png') no-repeat -579px -70px; }
 			div#hronline_logo { background: url('images/icons_sprite_3.png') no-repeat -653px -70px; }
-			div#referrals_logo { background: url('images/icons_sprite_3.png') no-repeat -720px -70px; }
+			div#referrals_logo { background: url('images/icons_sprite_3.png') no-repeat -718px -70px; }
 			div#share411_logo { background: url('images/icons_sprite_3.png') no-repeat -650px -70px; }
 			div#watercooler_logo { background: url('images/icons_sprite_3.png') no-repeat -288px -70px; }
 
@@ -236,17 +243,17 @@
 			div#basecamp_logo { background: url('images/icons_sprite_3.png') no-repeat -145px -0; }
 			div#highrise_logo { background: url('images/icons_sprite_3.png') no-repeat -72px -0; }
 			div#fbo_logo { background: url('images/icons_sprite_3.png') no-repeat -793px 0; }
-      div#contract_library { background: url('images/icons_sprite_3.png') no-repeat -433px 0; }
+      div#contract_library { background: url('images/icons_sprite_3.png') no-repeat -431px 0; }
       div#qms {background: url('images/icons_sprite_3.png') no-repeat -288px 0;}
-      div#contract_funding { background: url('images/icons_sprite_3.png') no-repeat -218px 0;}
-      div#qbr { background: url('images/icons_sprite_3.png') no-repeat -290px -70px; }
-			div#applicant_stack { background: url('images/icons_sprite_3.png') no-repeat -221px -70px; }
+      div#contract_funding { background: url('images/icons_sprite_3.png') no-repeat -217px 0;}
+      div#qbr { background: url('images/icons_sprite_3.png') no-repeat -289px -70px; }
+			div#applicant_stack { background: url('images/icons_sprite_3.png') no-repeat -220px -70px; }
 			/* recruiting */
 			div#ec_recruiting_logo { background: url('images/icons_sprite_3.png') no-repeat -358px 0; }
 			/*div#jobvite_logo { background: url('images/icons_sprite_3.png') no-repeat -288px 0; }*/
 
 			/*#monster_logo { background: url('images/icons_sprite_3.png') no-repeat -218px 0; }*/
-			div#i2s_logo { background: url('images/icons_sprite_3.png') no-repeat -149px -70px; }
+			div#i2s_logo { background: url('images/icons_sprite_3.png') no-repeat -154px -67px; }
 			div#referrals_admin_logo { background: url('images/icons_sprite_3.png') no-repeat -792px -70px; }
 		</style>
 		<script src="scripts/jquery-1.5.1.min.js"></script>
@@ -271,22 +278,22 @@
 		</header>
 		<div class="container">
 			<div class="row my-row">
-        <div class="col-12 align-self-center col-md-1 my-col">
+        <div class="col-12 align-self-center col-md-12 col-lg-1 my-col">
         <h2>Employees</h2>
         &nbsp;
         </div>
-        <div class="col-12 col-md-11 my-col">
+        <div class="col-12 col-md-12 col-lg-11 my-col">
         <div class="row" >
 					<div class="col-3 col-lg-2 my-col">
 						<a href="http://mail.evanschambers.com">
 							<div id="ec_mail_logo" class="icon_bg"></div>
-							<p style="text-align: justify;">EC Mail</p>
+							<li>EC Mail</li>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
 						<a href="https://sites.google.com/a/evanschambers.com/ec-inside-new/">
 							<div id="ec_inside_logo" class="icon_bg"></div>
-							<p>EC Inside</p>
+							<li>EC Inside</li>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
@@ -298,28 +305,29 @@
 					<div class="col-3 col-lg-2 my-col">
 						<a href="https://neosystems.ultipro.com/Login.aspx ">
 							<div id="hronline_logo" class="icon_bg"></div>
-							<p>UltiPro</p>
+							<li>UltiPro</li>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
 						<a href="http://www.evanschambers.com/secure/login.php">
 							<div id="referrals_logo" class="icon_bg"></div>
-							<p>Submit a Referral</p>
+							<li>&nbsp;&nbsp;&nbsp;&nbsp;Submit <br/>a Referral</li>
 						</a>
 					</div>
         </div>
       </div>
       </div>
+      <div class="row">
+					<div class="col-12">
+          	<hr>
+				</div>
+      </div>
 				<?php function recruiter(){ ?>
-          &nbsp;
-          <div class="row hr-row">
-             <hr>
-          </div>
 				<div class="row my-row">
-          <div class="col-12 align-self-center col-md-1">
+          <div class="col-12 align-self-center col-md-12 col-lg-1">
   					<h2>Recruiters</h2>
           </div>
-          <div class="col-12 col-md-11 my-col">
+          <div class="col-12 col-md-12 col-lg-11 my-col">
           <div class="row" style="height: 40%;">
   					<div class="col-lg-2 col-3 my-col">
   					       <a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
@@ -336,7 +344,7 @@
   					<div class="col-lg-2 col-3 my-col">
   								<a href="https://sites.google.com/evanschambers.com/idiv class="col my-col"aspmo/home">
   										<div id="i2s_logo" class="icon_bg"></div>
-  										<p>ITDAS PMO Portal</p>
+  										<p>ITDAS PMO <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Portal</p>
   								</a>
   					</div>
   					<div class="col-lg-2 col-3 my-col">
@@ -348,41 +356,43 @@
           </div>
         </div>
 		</div>
-      <?php }?>
+    <div class="row">
+			<div class="col-12">
+			 <hr>
+		 </div>
+    </div>
+    &nbsp;
+  <?php }?>
 				<?php function businessManager(){ ?>
-          <div class="row hr-row">
-             <hr>
-          </div>
-          &nbsp;
         <div class="row my-row">
-          <div class="col-12 col-md-1">
+          <div class="col-12 col-md-12 col-lg-1">
             <h2>Business<br/>Managers</h2>
             &nbsp;
           </div>
-          <div class="col-12 col-md-11 my-col">
+          <div class="col-12 col-md-12 col-lg-11 my-col">
             <div class="row" style="height: 100%;">
               <div class="col-3 col-lg-2 my-col">
     					       <a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
     					              <div id="ec_bd_logo" class="icon_bg"></div>
-    					              <p>BD Site</p>
+    					              <li>BD Site</li>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
     					       <a href="https://ectech.basecamphq.com/clients">
     					              <div id="basecamp_logo" class="icon_bg"></div>
-    					              <p>Basecamp</p>
+    					              <p>&nbsp;&nbsp;&nbsp;&nbsp;Basecamp</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
     					       <a href="https://ectech.highrisehq.com/account">
     					              <div id="highrise_logo" class="icon_bg"></div>
-    					              <p>Highrise</p>
+    					              <li>Highrise</li>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
     					       <a href="https://www.fbo.gov/">
     					              <div id="fbo_logo" class="icon_bg"></div>
-    					              <p>FedBizOpps</p>
+    					              <p>&nbsp;&nbsp;&nbsp;FedBizOpps</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
@@ -392,7 +402,7 @@
     								</a>
     					</div>
               <div class="col-3 col-lg-2 my-col">
-                      <a href="https://sites.google.com/a/evanschambers.com/ec-quality-management-system/">
+                      <a href="https://sites.google.com/evanschambers.com/qms">
                             <div id="qms" class="icon_bg"></div>
                             <p>Quality Mgmt</p>
                       </a>
@@ -400,19 +410,19 @@
                <div class="col-3 col-lg-2 my-col">
                      <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4">
                           <div id="contract_funding" class="icon_bg"></div>
-                          <p>Contract Funding</p>
+                          <li>Contract <br/>&nbsp;Funding</li>
                      </a>
                 </div>
                 <div class="col-3 col-lg-2 my-col">
                       <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f">
                           <div id="contract_library" class="icon_bg"></div>
-                          <p>Contract Library</p>
+                          <li>Contract <br/>&nbsp;&nbsp;Library</li>
                       </a>
                 </div>
                 <div class="col-3 col-lg-2 my-col">
                       <a href="https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ">
                           <div id="qbr" class="icon_bg"></div>
-                          <p>Program Reviews</p>
+                          <li>Program <br/>&nbsp;Reviews</li>
                       </a>
                 </div>
               </div>
@@ -421,7 +431,7 @@
          </div>
        </div>
 
-				<?php }?>
+     <?php }?>
 				<?php
               if ($userRoleNames) {
                   if (strpos($userRoleNames, "recruiter") !== false) {
@@ -478,7 +488,7 @@
 				});
 		-->
     </script>
-		<script>
+		<!--<script>
 				for(var x = 1; x < $('tr').length; x++){
 					 var td = $('tr')[x];
 					 var prev = $('tr')[x - 1];
@@ -489,25 +499,60 @@
 								$(prev).append("<td> &nbsp; </td>");
 						}
 				}
-		</script>
+		</script>-->
   <script>
-  var width = $('div.col-12').width();
-  function rotate(){
-     if(width > 100){
+	var width = $(window).width();
+		 if(width < 991){
+			 $('h2').addClass('rotate_header');
+
+		 }else{
+				$('h2').removeClass('rotate_header');
+		 }
+	$(window).resize(function(){
+	var width = $(window).width();
+     if(width < 991){
        $('h2').addClass('rotate_header');
 
      }else{
         $('h2').removeClass('rotate_header');
      }
-  }
-  $(document).ready(rotate());
+	});
   </script>
+
     <script>
       var end = $('div').length;
       var div = $('div')[end - 1];
       for(x = 0; x < 13; x++){
         $(div).append("&nbsp;<br/>");
       }
+			var empDivider = $('div.col-12')[2];
+			var recDivider = $('div.col-12')[5];
+			var width = $(window).width();
+				 if(width < 990){
+					 $(empDivider).children(empDivider).remove();
+					 $(recDivider).children(recDivider).remove();
+					 $(empDivider).append("&nbsp;<br/>&nbsp;<br/>&nbsp;<br/><hr>");
+					 $(recDivider).append("&nbsp;<br/><hr>");
+				 }else{
+					 $(empDivider).children(empDivider).remove();
+					 $(recDivider).children(recDivider).remove();
+					 $(empDivider).append("<hr>");
+					 $(recDivider).append("<hr>");
+				 }
+			$(window).resize(function(){
+			var width = $(window).width();
+				 if(width < 990){
+					 $(empDivider).children(empDivider).remove();
+					 $(recDivider).children(recDivider).remove();
+					 $(empDivider).append("&nbsp;<br/>&nbsp;<br/>&nbsp;<br/><hr>");
+					 $(recDivider).append("&nbsp;<br/><hr>");
+				 }else{
+					 $(empDivider).children(empDivider).remove();
+					 $(recDivider).children(recDivider).remove();
+					 $(empDivider).append("<hr>");
+					 $(recDivider).append("<hr>");
+				 }
+			});
     </script>
 
 	</body>
