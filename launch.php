@@ -139,6 +139,8 @@
 				font-size: 12px;
 				color: #555;
 				list-style:none;
+
+
 			}
 			h2 {
 				display: -webkit-transform: rotate(270deg);
@@ -154,6 +156,10 @@
 				font-weight:normal;
 				padding: 0;
 				margin: 0;
+			}
+			.widthAndHeight{
+				min-width: 70%;
+				height: 33%;
 			}
       .rotate_header{
         display: -webkit-transform: none;
@@ -178,17 +184,12 @@
       .icon_hover{
         background: url('images/td_background.png') no-repeat -60px -60px;
       }
-			.my-col li{
-				margin: 3px 0 0 15px;
-				font-size: 12px;
-				color: #555;
-				list-style:none;
-			}
       .my-col p{
           color: #555;
           padding: 0;
           margin: 0;
 					text-align: justify-all;
+					white-space: nowrap;
       }
       .my-col a{
         text-decoration: none;
@@ -198,12 +199,21 @@
         width: 100%;
         align-items: center;
 			}
-      .hr-col{
-        height: auto;
-        border-bottom: 1px solid #bbb;
-        padding: 30px 25px 30px 25px;
+      hr{
+				border: none;
+				border-bottom: 0.5px solid #bbb;
+				box-shadow: 0 1px 0 #efefef;
+				-moz-box-shadow: 0 1px 0 #efefef;
+  				-webkit-box-shadow: 0 1px 0 #efefef;
+				padding: 0px 30px 25px 30px;
 
       }
+			.border-resize-two-rows{
+				padding: 25px 30px 135px 30px;
+			}
+			.border-resize-one-row{
+				padding: 25px 30px 35px 30px;
+			}
 			footer {
 				background-color: #eee;
 				height: 60px;
@@ -246,7 +256,7 @@
       div#contract_library { background: url('images/icons_sprite_3.png') no-repeat -431px 0; }
       div#qms {background: url('images/icons_sprite_3.png') no-repeat -288px 0;}
       div#contract_funding { background: url('images/icons_sprite_3.png') no-repeat -217px 0;}
-      div#qbr { background: url('images/icons_sprite_3.png') no-repeat -289px -70px; }
+      div#qbr { background: url('images/icons_sprite_3.png') no-repeat -292px -70px; }
 			div#applicant_stack { background: url('images/icons_sprite_3.png') no-repeat -220px -70px; }
 			/* recruiting */
 			div#ec_recruiting_logo { background: url('images/icons_sprite_3.png') no-repeat -358px 0; }
@@ -271,12 +281,12 @@
 			<img src="images/logo_ec_small.png"/>
 			<div id="title">Launchpad</div>
 			<ul>
-				<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>
+				<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>-->
 				<li><a href="logout.php">Signout</a></li>
 			</ul>
 			<br style="clear:both" />
 		</header>
-		<div class="container">
+		<div class="container widthAndHeight">
 			<div class="row my-row">
         <div class="col-12 align-self-center col-md-12 col-lg-1 my-col">
         <h2>Employees</h2>
@@ -287,13 +297,13 @@
 					<div class="col-3 col-lg-2 my-col">
 						<a href="http://mail.evanschambers.com">
 							<div id="ec_mail_logo" class="icon_bg"></div>
-							<li>EC Mail</li>
+							<p style="position: relative; left: 13px;">EC Mail</p>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
 						<a href="https://sites.google.com/a/evanschambers.com/ec-inside-new/">
 							<div id="ec_inside_logo" class="icon_bg"></div>
-							<li>EC Inside</li>
+							<p style="position: relative; left: 14px;">EC Inside</p>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
@@ -305,13 +315,13 @@
 					<div class="col-3 col-lg-2 my-col">
 						<a href="https://neosystems.ultipro.com/Login.aspx ">
 							<div id="hronline_logo" class="icon_bg"></div>
-							<li>UltiPro</li>
+							<p style="position: relative; left: 14px;">UltiPro</p>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
 						<a href="http://www.evanschambers.com/secure/login.php">
 							<div id="referrals_logo" class="icon_bg"></div>
-							<li>&nbsp;&nbsp;&nbsp;&nbsp;Submit <br/>a Referral</li>
+							<p style="position: relative; left: -5px;">Submit a Referral</p>
 						</a>
 					</div>
         </div>
@@ -319,7 +329,7 @@
       </div>
       <div class="row">
 					<div class="col-12">
-          	<hr>
+						<hr>
 				</div>
       </div>
 				<?php function recruiter(){ ?>
@@ -328,7 +338,7 @@
   					<h2>Recruiters</h2>
           </div>
           <div class="col-12 col-md-12 col-lg-11 my-col">
-          <div class="row" style="height: 40%;">
+          <div class="row">
   					<div class="col-lg-2 col-3 my-col">
   					       <a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
   					              <div id="ec_recruiting_logo" class="icon_bg"></div>
@@ -342,9 +352,9 @@
   								</a>
   					</div>
   					<div class="col-lg-2 col-3 my-col">
-  								<a href="https://sites.google.com/evanschambers.com/idiv class="col my-col"aspmo/home">
+  								<a href="https://sites.google.com/evanschambers.com/itdaspmo/home">
   										<div id="i2s_logo" class="icon_bg"></div>
-  										<p>ITDAS PMO <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Portal</p>
+  										<p style="position: relative; left: -15px;">ITDAS PMO Portal</p>
   								</a>
   					</div>
   					<div class="col-lg-2 col-3 my-col">
@@ -361,8 +371,7 @@
 			 <hr>
 		 </div>
     </div>
-    &nbsp;
-  <?php }?>
+      <?php }?>
 				<?php function businessManager(){ ?>
         <div class="row my-row">
           <div class="col-12 col-md-12 col-lg-1">
@@ -370,29 +379,29 @@
             &nbsp;
           </div>
           <div class="col-12 col-md-12 col-lg-11 my-col">
-            <div class="row" style="height: 100%;">
+            <div class="row">
               <div class="col-3 col-lg-2 my-col">
     					       <a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
     					              <div id="ec_bd_logo" class="icon_bg"></div>
-    					              <li>BD Site</li>
+    					              <p style="position: relative; left: 16px;">BD Site</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
     					       <a href="https://ectech.basecamphq.com/clients">
     					              <div id="basecamp_logo" class="icon_bg"></div>
-    					              <p>&nbsp;&nbsp;&nbsp;&nbsp;Basecamp</p>
+    					              <p style="position: relative; left: 10px;">Basecamp</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
     					       <a href="https://ectech.highrisehq.com/account">
     					              <div id="highrise_logo" class="icon_bg"></div>
-    					              <li>Highrise</li>
+    					              <p style="position: relative; left: 16px;">Highrise</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
     					       <a href="https://www.fbo.gov/">
     					              <div id="fbo_logo" class="icon_bg"></div>
-    					              <p>&nbsp;&nbsp;&nbsp;FedBizOpps</p>
+    					              <p style="position: relative; left: 5px;">FedBizOpps</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
@@ -410,19 +419,19 @@
                <div class="col-3 col-lg-2 my-col">
                      <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4">
                           <div id="contract_funding" class="icon_bg"></div>
-                          <li>Contract <br/>&nbsp;Funding</li>
+                          <p style="position: relative; left: -6px;">Contract Funding</p>
                      </a>
                 </div>
                 <div class="col-3 col-lg-2 my-col">
                       <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f">
                           <div id="contract_library" class="icon_bg"></div>
-                          <li>Contract <br/>&nbsp;&nbsp;Library</li>
+                          <p style="position: relative; left: -5px;">Contract Library</p>
                       </a>
                 </div>
                 <div class="col-3 col-lg-2 my-col">
                       <a href="https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ">
                           <div id="qbr" class="icon_bg"></div>
-                          <li>Program <br/>&nbsp;Reviews</li>
+                          <p style="position: relative; left: -8px;">Program Reviews</p>
                       </a>
                 </div>
               </div>
@@ -431,7 +440,7 @@
          </div>
        </div>
 
-     <?php }?>
+				<?php }?>
 				<?php
               if ($userRoleNames) {
                   if (strpos($userRoleNames, "recruiter") !== false) {
@@ -525,34 +534,25 @@
       for(x = 0; x < 13; x++){
         $(div).append("&nbsp;<br/>");
       }
-			var empDivider = $('div.col-12')[2];
-			var recDivider = $('div.col-12')[5];
-			var width = $(window).width();
-				 if(width < 990){
-					 $(empDivider).children(empDivider).remove();
-					 $(recDivider).children(recDivider).remove();
-					 $(empDivider).append("&nbsp;<br/>&nbsp;<br/>&nbsp;<br/><hr>");
-					 $(recDivider).append("&nbsp;<br/><hr>");
-				 }else{
-					 $(empDivider).children(empDivider).remove();
-					 $(recDivider).children(recDivider).remove();
-					 $(empDivider).append("<hr>");
-					 $(recDivider).append("<hr>");
-				 }
+			var employeesDivider = $('hr')[0];
+			var recruitersDivider = $('hr')[1];
+			if($(window).width() < 990){
+					$(employeesDivider).addClass('border-resize-two-rows');
+					$(recruitersDivider).addClass('border-resize-one-row');
+			}else{
+					$(employeesDivider).removeClass('border-resize-two-rows');
+					$(recruitersDivider).removeClass('border-resize-one-row');
+			}
 			$(window).resize(function(){
-			var width = $(window).width();
-				 if(width < 990){
-					 $(empDivider).children(empDivider).remove();
-					 $(recDivider).children(recDivider).remove();
-					 $(empDivider).append("&nbsp;<br/>&nbsp;<br/>&nbsp;<br/><hr>");
-					 $(recDivider).append("&nbsp;<br/><hr>");
-				 }else{
-					 $(empDivider).children(empDivider).remove();
-					 $(recDivider).children(recDivider).remove();
-					 $(empDivider).append("<hr>");
-					 $(recDivider).append("<hr>");
-				 }
+					if($(window).width() < 990){
+							$(employeesDivider).addClass('border-resize-two-rows');
+							$(recruitersDivider).addClass('border-resize-one-row');
+					}else{
+						  $(employeesDivider).removeClass('border-resize-two-rows');
+							$(recruitersDivider).removeClass('border-resize-one-row');
+					}
 			});
+
     </script>
 
 	</body>
