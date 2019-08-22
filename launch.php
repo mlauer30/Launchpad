@@ -73,9 +73,6 @@
         $userRolesArray = json_decode($response);
         for ($x = 0; $x < count($userRolesArray); $x++) {
             $userRoleNames .= $userRolesArray[$x]->name;
-            if($x < count($userRolesArray)-1){
-              $userRoleNames .= ", ";
-            }
         }
         if ($userRoleNames === "") {
             $userRoleNames = 'employee';
@@ -92,6 +89,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 		<title></title>
+
 		<style>
 			html, body {
 				font-family: Interstate-light;
@@ -100,21 +98,17 @@
 				background: url(images/background.gif)  #d5d5d5 repeat-x;
 				background-attachment:fixed;
 			}
-			a {
-				text-decoration: none;
-				color: #D54321;
-			}
+
+			a { color: #D54321; }
+
 			@font-face {
 				font-family: Interstate-light;
 				src: url('fonts/interstate.ttf');
 			}
-			colgroup {
-				color:#335;
-			}
 
-			header {
-				margin: 22px;
-			}
+			colgroup { color:#335; }
+
+			header { margin: 22px; }
 
 			header div#title {
 				float:left;
@@ -131,7 +125,6 @@
 				margin:0;
 				padding:0;
 				float:right;
-
 			}
 			header ul li {
 				float: left;
@@ -139,65 +132,53 @@
 				font-size: 12px;
 				color: #555;
 				list-style:none;
-
-
 			}
 			h2 {
-				display: -webkit-transform: rotate(270deg);
-				display: -moz-transform: rotate(270deg);
-				display: -ms-transform: rotate(90deg);
-				display: -o-transform: rotate(90deg);
-				transform: rotate(270deg);*/
 				font-family: Interstate-light;
 				line-height: 24px;
 				font-size: 16px;
 				color:#999;
         text-align: center;
-				font-weight:normal;
-				padding: 0;
-				margin: 0;
+				font-weight: normal;
 			}
-			.widthAndHeight{
-				min-width: 70%;
-				height: 33%;
-			}
+
       .rotate_header{
-        display: -webkit-transform: none;
-        display: -moz-transform: none;
-        display: -ms-transform: none;
-        display: -o-transform: none;
-        transform: none;
-        font-family: Interstate-light;
-        line-height: 24px;
-        font-size: 16px;
-        color:#999;
-        text-align: center;
-        font-weight:normal;
-        padding: 0;
-        margin: 0;
+				display: -webkit-transform: rotate(270deg);
+				display: -moz-transform: rotate(270deg);
+				display: -ms-transform: rotate(90deg);
+				display: -o-transform: rotate(90deg);
+				transform: rotate(270deg);
       }
+			.height_constriction{ height: 60%; }
+
+			.width_constriction{ max-width: 55%; }
 
 			.my-col {
 				font-size: 12px;
 				color: #555;
+				padding: 5px 0 20px 15px;
+				min-width: 20%;
 			}
-      .icon_hover{
-        background: url('images/td_background.png') no-repeat -60px -60px;
-      }
+
+      .icon_hover{ background: url('images/td_background.png') no-repeat -60px -60px; }
+
       .my-col p{
           color: #555;
-          padding: 0;
-          margin: 0;
-					text-align: justify-all;
+					margin: 0;
+					position: relative;
 					white-space: nowrap;
       }
       .my-col a{
         text-decoration: none;
       }
 			.my-row{
-        height: 25%;
-        width: 100%;
+        height: 23%;
+        width: 90%;
         align-items: center;
+				position: relative;
+			}
+			.row{
+				position: relative;
 			}
       hr{
 				border: none;
@@ -205,15 +186,10 @@
 				box-shadow: 0 1px 0 #efefef;
 				-moz-box-shadow: 0 1px 0 #efefef;
   				-webkit-box-shadow: 0 1px 0 #efefef;
-				padding: 0px 30px 25px 30px;
+				padding: 0 30px 1px 30px;
+				width: 100%;
 
       }
-			.border-resize-two-rows{
-				padding: 25px 30px 135px 30px;
-			}
-			.border-resize-one-row{
-				padding: 25px 30px 35px 30px;
-			}
 			footer {
 				background-color: #eee;
 				height: 60px;
@@ -281,83 +257,88 @@
 			<img src="images/logo_ec_small.png"/>
 			<div id="title">Launchpad</div>
 			<ul>
-				<li><?php echo $userInfo['name'] . " | role: " . $userRoleNames;?></li>-->
+				<li><?php echo $userInfo['name'] ?></li>
 				<li><a href="logout.php">Signout</a></li>
 			</ul>
 			<br style="clear:both" />
 		</header>
-		<div class="container widthAndHeight">
+		<div class="container" style="position: relative; left: 10px;">
 			<div class="row my-row">
-        <div class="col-12 align-self-center col-md-12 col-lg-1 my-col">
+        <div class="col-12 col-md-12 col-lg-1">
         <h2>Employees</h2>
-        &nbsp;
         </div>
         <div class="col-12 col-md-12 col-lg-11 my-col">
         <div class="row" >
 					<div class="col-3 col-lg-2 my-col">
-						<a href="http://mail.evanschambers.com">
+						<a href="http://mail.evanschambers.com"
+						target="_blank">
 							<div id="ec_mail_logo" class="icon_bg"></div>
-							<p style="position: relative; left: 13px;">EC Mail</p>
+							<p style="left: 13px;">EC Mail</p>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
-						<a href="https://sites.google.com/a/evanschambers.com/ec-inside-new/">
+						<a href="https://sites.google.com/a/evanschambers.com/ec-inside-new/"
+						target="_blank">
 							<div id="ec_inside_logo" class="icon_bg"></div>
-							<p style="position: relative; left: 14px;">EC Inside</p>
+							<p style="left: 14px;">EC Inside</p>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
-						<a href="https://te06.neosystems.net/DeltekTC/welcome.msv">
+						<a href="https://te06.neosystems.net/DeltekTC/welcome.msv"
+						target="_blank">
 							<div id="tlo_logo" class="icon_bg"></div>
 							<p>Time & Labor</p>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
-						<a href="https://neosystems.ultipro.com/Login.aspx ">
+						<a href="https://neosystems.ultipro.com/Login.aspx"
+						target="_blank">
 							<div id="hronline_logo" class="icon_bg"></div>
-							<p style="position: relative; left: 14px;">UltiPro</p>
+							<p style="left: 14px;">UltiPro</p>
 						</a>
 					</div>
 					<div class="col-3 col-lg-2 my-col">
-						<a href="http://www.evanschambers.com/secure/login.php">
+						<a href="http://www.evanschambers.com/secure/login.php"
+						target="_blank">
 							<div id="referrals_logo" class="icon_bg"></div>
-							<p style="position: relative; left: -5px;">Submit a Referral</p>
+							<p style="left: -5px;">Submit a Referral</p>
 						</a>
 					</div>
         </div>
       </div>
       </div>
-      <div class="row">
+				<?php if (strpos($userRoleNames, "recruiter") !== false) { ?>
+				<div class="row my-row">
 					<div class="col-12">
 						<hr>
-				</div>
-      </div>
-				<?php function recruiter(){ ?>
-				<div class="row my-row">
-          <div class="col-12 align-self-center col-md-12 col-lg-1">
+					</div>
+          <div class="col-12 col-md-12 col-lg-1">
   					<h2>Recruiters</h2>
           </div>
           <div class="col-12 col-md-12 col-lg-11 my-col">
           <div class="row">
-  					<div class="col-lg-2 col-3 my-col">
-  					       <a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/">
+  					<div class="col-3 col-lg-2 my-col">
+  					       <a href="https://sites.google.com/a/evanschambers.com/ec-recruiting/"
+									 target="_blank">
   					              <div id="ec_recruiting_logo" class="icon_bg"></div>
   					              <p>Recruiting Site</p>
   					       </a>
   					</div>
-  					<div class="col-lg-2 col-3 my-col">
-  								<a href="https://www.applicantstack.com/login/">
+  					<div class="col-3 col-lg-2 my-col">
+  								<a href="https://www.applicantstack.com/login/"
+									target="_blank">
   										<div id="applicant_stack" class="icon_bg"></div>
-  										<p>Applicant Stack</p>
+  										<p style="left: -3px;">Applicant Stack</p>
   								</a>
   					</div>
-  					<div class="col-lg-2 col-3 my-col">
-  								<a href="https://sites.google.com/evanschambers.com/itdaspmo/home">
+  					<div class="col-3 col-lg-2 my-col">
+  								<a href="https://sites.google.com/evanschambers.com/itdaspmo/home"
+									target="_blank">
   										<div id="i2s_logo" class="icon_bg"></div>
-  										<p style="position: relative; left: -15px;">ITDAS PMO Portal</p>
+  										<p style="left: -15px;">ITDAS PMO Portal</p>
   								</a>
   					</div>
-  					<div class="col-lg-2 col-3 my-col">
+  					<div class="col-3 col-lg-2 my-col">
   					       <a href="" onclick="alert('URL not yet added'); return false;">
   					              <div id="referrals_admin_logo" class="icon_bg"></div>
   					              <p>Referrals Admin</p>
@@ -366,72 +347,78 @@
           </div>
         </div>
 		</div>
-    <div class="row">
-			<div class="col-12">
-			 <hr>
-		 </div>
-    </div>
       <?php }?>
-				<?php function businessManager(){ ?>
-        <div class="row my-row">
+				<?php if (strpos($userRoleNames, "business-manager") !== false) { ?>
+        <div class="row my-row" style="top: 30px;">
+					<div class="col-12">
+						<hr>
+					</div>
           <div class="col-12 col-md-12 col-lg-1">
-            <h2>Business<br/>Managers</h2>
-            &nbsp;
+            <h2>Business Managers</h2>
           </div>
           <div class="col-12 col-md-12 col-lg-11 my-col">
             <div class="row">
               <div class="col-3 col-lg-2 my-col">
-    					       <a href="https://sites.google.com/a/evanschambers.com/ec-business-development/">
+    					       <a href="https://sites.google.com/a/evanschambers.com/ec-business-development/"
+										 target="_blank">
     					              <div id="ec_bd_logo" class="icon_bg"></div>
-    					              <p style="position: relative; left: 16px;">BD Site</p>
+    					              <p style="left: 16px;">BD Site</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
-    					       <a href="https://ectech.basecamphq.com/clients">
+    					       <a href="https://ectech.basecamphq.com/clients"
+										 target="_blank">
     					              <div id="basecamp_logo" class="icon_bg"></div>
-    					              <p style="position: relative; left: 10px;">Basecamp</p>
+    					              <p style="left: 10px;">Basecamp</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
-    					       <a href="https://ectech.highrisehq.com/account">
+    					       <a href="https://ectech.highrisehq.com/account"
+										 target="_blank">
     					              <div id="highrise_logo" class="icon_bg"></div>
-    					              <p style="position: relative; left: 16px;">Highrise</p>
+    					              <p style="left: 16px;">Highrise</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
-    					       <a href="https://www.fbo.gov/">
+    					       <a href="https://www.fbo.gov/"
+										 target="_blank">
     					              <div id="fbo_logo" class="icon_bg"></div>
-    					              <p style="position: relative; left: 5px;">FedBizOpps</p>
+    					              <p style="left: 5px;">FedBizOpps</p>
     					       </a>
     					</div>
     					<div class="col-3 col-lg-2 my-col">
-    								<a href="https://www.applicantstack.com/login/">
+    								<a href="https://www.applicantstack.com/login/"
+										target="_blank">
     										<div id="applicant_stack" class="icon_bg"></div>
-    										<p>Applicant Stack</p>
+    										<p style="left: -3px;">Applicant Stack</p>
     								</a>
     					</div>
               <div class="col-3 col-lg-2 my-col">
-                      <a href="https://sites.google.com/evanschambers.com/qms">
+                      <a href="https://sites.google.com/evanschambers.com/qms"
+											target="_blank">
                             <div id="qms" class="icon_bg"></div>
                             <p>Quality Mgmt</p>
                       </a>
               </div>
                <div class="col-3 col-lg-2 my-col">
-                     <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4">
+                     <a href=" https://drive.google.com/drive/u/0/folders/1z2EjK4LfkIdBNmIr6j8r2Ca7qLSpgDy4"
+										 target="_blank">
                           <div id="contract_funding" class="icon_bg"></div>
-                          <p style="position: relative; left: -6px;">Contract Funding</p>
+                          <p style="left: -6px;">Contract Funding</p>
                      </a>
                 </div>
                 <div class="col-3 col-lg-2 my-col">
-                      <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f">
+                      <a href="https://drive.google.com/drive/u/0/folders/1we2qMjw0-Omro2yATNu7f7ZdxjVaf55f"
+											target="_blank">
                           <div id="contract_library" class="icon_bg"></div>
-                          <p style="position: relative; left: -5px;">Contract Library</p>
+                          <p style="left: -5px;">Contract Library</p>
                       </a>
                 </div>
                 <div class="col-3 col-lg-2 my-col">
-                      <a href="https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ">
+                      <a href="https://drive.google.com/drive/u/0/folders/0B9-8ptKToawMdHhSUUNLSnRNdTQ"
+											target="_blank">
                           <div id="qbr" class="icon_bg"></div>
-                          <p style="position: relative; left: -8px;">Program Reviews</p>
+                          <p style="left: -8px;">Program Reviews</p>
                       </a>
                 </div>
               </div>
@@ -439,49 +426,8 @@
 
          </div>
        </div>
-
 				<?php }?>
-				<?php
-              if ($userRoleNames) {
-                  if (strpos($userRoleNames, "recruiter") !== false) {
-                      recruiter();
-                  }
-                  if (strpos($userRoleNames, "business-manager") !== false) {
-                      businessManager();
-                  }
-              }
-
-        ?>
-
-				<!--
-				<tr>
-					<th><h2><br/>Marketing</h2></th>
-					<div class="col my-col">
-						<img src="images/icon_ecsite.png"/><br/>
-						EC Marketing
-					</div>
-					<div class="col my-col">
-						<img src="images/icon_ecsite.png"/><br/>
-						Mailchimp
-					</div>
-					<div class="col my-col">
-						<img src="images/icon_ecsite.png"/><br/>
-						Google Analytics
-					</div>
-					<div class="col my-col">
-						<a href="https://www.smartsheet.com/b/openid/ga/evanschambers.com?gapp=505">
-						<img src="images/icon_ecsite.png"/><br/>
-						Smartsheet
-						</a>
-					</div>
-					<div class="col my-col">
-						<img src="images/icon_ecsite.png"/><br/>
-						Share411 Admin
-					</div>
-				</tr>
-				-->
 		</div>
-
     <footer>
 			<span>EC Launchpad</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			Version <a href="#">1.0a</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -489,71 +435,136 @@
 		</footer>
 
 		<script>
-		<!--
 				$('div.icon_bg').hover(function(){
 					$(this).parent().parent().addClass('icon_hover');
 				}, function() {
 					$(this).parent().parent().removeClass('icon_hover');
 				});
-		-->
-    </script>
-		<!--<script>
-				for(var x = 1; x < $('tr').length; x++){
-					 var td = $('tr')[x];
-					 var prev = $('tr')[x - 1];
-						if($('tr')[x].children.length > $('tr')[x - 1].children.length){
-							var delta = $(td).children('td, th').length - $(prev).children('td, th').length;
-							var added = $(prev).children('td, th').length + delta;
-							for(var y = $(prev).children('td, th').length; y < added; y++)
-								$(prev).append("<td> &nbsp; </td>");
-						}
-				}
-		</script>-->
-  <script>
-	var width = $(window).width();
-		 if(width < 991){
-			 $('h2').addClass('rotate_header');
+	    </script>
 
-		 }else{
-				$('h2').removeClass('rotate_header');
-		 }
-	$(window).resize(function(){
-	var width = $(window).width();
-     if(width < 991){
-       $('h2').addClass('rotate_header');
+			<script>
+			  var grid = $('div.container');//the entire bootstrap grid
+				var firsthr = $('div.row.my-row')[1];//first divider on in the grid
+				var secondhr = $('div.row.my-row')[2];//second divider in the grid
+				var secondRow = $('div.row')[3];//second row can be business managers or recruiters depending on the role of the user
 
-     }else{
-        $('h2').removeClass('rotate_header');
-     }
-	});
-  </script>
+			  const NUM_ROWS = $('div.row.my-row').length;//the number of roles on the screen
+				const CENTER_SCREEN_MARGIN = ['20%', '8%', '12%', '3%'];//margin-top needed when the tab is not in fullscreen
+				const FULLSCREEN_MARGIN = ['40%', '13%', '18%', '10%'];//margin-top needed when the tab is in fullscreen
+				const FULLSCREEN_HEIGHT = 900;//height of window in fullscreen
+				const DESKTOP_WIDTH = 992;//width size of window when the grid's height needs to be reduced
+				const TIGHTEN_WIDTH = 1220;//width size of window when the grid's width needs to be reduced
+			  const PHONE_WIDTH = 767;//width size of window when the grid is reduced to fit on a phone
+				const RECRUITER_HEIGHT = 113;//height of the second row of roles when there is only a recruiter role
+			</script>
 
-    <script>
-      var end = $('div').length;
-      var div = $('div')[end - 1];
-      for(x = 0; x < 13; x++){
-        $(div).append("&nbsp;<br/>");
-      }
-			var employeesDivider = $('hr')[0];
-			var recruitersDivider = $('hr')[1];
-			if($(window).width() < 990){
-					$(employeesDivider).addClass('border-resize-two-rows');
-					$(recruitersDivider).addClass('border-resize-one-row');
-			}else{
-					$(employeesDivider).removeClass('border-resize-two-rows');
-					$(recruitersDivider).removeClass('border-resize-one-row');
-			}
-			$(window).resize(function(){
-					if($(window).width() < 990){
-							$(employeesDivider).addClass('border-resize-two-rows');
-							$(recruitersDivider).addClass('border-resize-one-row');
+			<script>
+				tighten(DESKTOP_WIDTH, 'height_constriction');
+				$(window).resize(function(){
+						tighten(DESKTOP_WIDTH, 'height_constriction');
+				});
+
+				tighten(TIGHTEN_WIDTH, 'width_constriction');
+				$(window).resize(function(){
+						tighten(TIGHTEN_WIDTH, 'width_constriction');
+				});
+				/**
+				 * Tightens the width of the grid when the window is
+				 * stretched.
+				 *
+				 * @param tight_width width of window when the height
+				 * of the grid should be constricted and width of window when the
+				 * the grid needs to have its width decreased.
+				 * @param addClass width_constriction class or the height_constriction
+				 * class that shrinks grid according to screen size.
+				 */
+				function tighten(tight_width, addClass){
+					if($(window).width() >= tight_width){
+						$(grid).addClass(addClass);
 					}else{
-						  $(employeesDivider).removeClass('border-resize-two-rows');
-							$(recruitersDivider).removeClass('border-resize-one-row');
+						$(grid).removeClass(addClass);
 					}
+				}
+			</script>
+
+			<script>
+			rotateHeader();
+			$(window).resize(function(){
+				rotateHeader();
 			});
+			/**
+			 * Rotates header of each role when the width of the window
+			 * increases or decreases with resizing.
+			 */
+			function rotateHeader(){
+				if($(window).width() >= DESKTOP_WIDTH){
+					$('h2').addClass('rotate_header');
+				}else{
+					 $('h2').removeClass('rotate_header');
+				}
+			}
+			</script>
 
-    </script>
-
+			<script>
+				 formatWindow();
+				 $(window).resize(function(){
+						 formatWindow();
+				 });
+					margin();
+					$(window).resize(function(){
+							margin();
+					});
+					/**
+ 				  * Formatting the window with a refresh and also when the window resizes.
+ 					* Adjusting width of grid and position of dividers.
+ 					*/
+					function formatWindow(){
+						if($(window).width() >= PHONE_WIDTH){
+								$(grid).css('width', '65%');
+						}else if($(window).width() < PHONE_WIDTH){
+								$(grid).css('width', '100%');
+						}
+						if($(window).width() < DESKTOP_WIDTH){
+								$(grid).css('padding-bottom', '400px');
+								$(firsthr).css('top', '80px');
+								$(secondhr).css('top','85px');
+						}else{
+								$(grid).css('padding-bottom', '');
+								$(firsthr).css('top', '');
+								$(secondhr).css('top','33px');
+						}
+					}
+					/**
+					 * Margins for dividers are adjusted with resizing of window and grid.
+					 * The dividers positions are pulled closer to icons.
+					 */
+					function margin(){
+						if($(window).width() >= DESKTOP_WIDTH && $(window).height() >= FULLSCREEN_HEIGHT){
+							$(firsthr).css('top','-30px');
+							$(secondhr).css('top','-25px');
+							adjustToScreen(FULLSCREEN_MARGIN);
+						}else{
+							formatWindow();
+							adjustToScreen(CENTER_SCREEN_MARGIN);
+						}
+					}
+					/**
+					 * Vertically aligns the grid when browser is displayed in fullscreen
+					 *
+					 * @param array array containing necessary margin-top details
+					 * to vertically align the grid.
+					 */
+					function adjustToScreen(array){
+						if(NUM_ROWS == 1){
+							$(grid).css('margin-top', array[0]);
+						}if(NUM_ROWS == 2){
+							$(grid).css('margin-top', array[1]);
+						}if(NUM_ROWS == 2 && $(secondRow).height() <= RECRUITER_HEIGHT){
+							$(grid).css('margin-top', array[2]);
+						}if(NUM_ROWS == 3){
+							$(grid).css('margin-top', array[3]);
+						}
+					}
+			</script>
 	</body>
 </html>
