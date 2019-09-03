@@ -11,7 +11,7 @@
     'domain' => $domain,
     'client_id' => $id,
     'client_secret' => $secret,
-    'redirect_uri' => 'http://ec2-100-25-44-194.compute-1.amazonaws.com/launchpad/launch.php',
+    'redirect_uri' => 'http://launchpad.evanschambers.com',
     'persist_id_token' => true,
     'persist_access_token' => true,
     'persist_refresh_token' => true,
@@ -138,8 +138,8 @@
 				line-height: 24px;
 				font-size: 16px;
 				color:#999;
-        text-align: center;
 				font-weight: normal;
+        text-align: center;
 			}
 
       .rotate_header{
@@ -188,7 +188,8 @@
   				-webkit-box-shadow: 0 1px 0 #efefef;
 				padding: 0 30px 1px 30px;
 				width: 100%;
-
+				position: relative;
+				left: -35px;
       }
 			footer {
 				background-color: #eee;
@@ -213,6 +214,44 @@
 				margin-bottom: 0;
 				display:inline-block;
 				clear:right;
+			}
+			@media (max-width: 992px){
+				div.container{
+					max-width: 510px;
+					padding-bottom: 500px;
+				}
+				div#first_hr{ top: 75px;}
+				div#second_hr{ top: 80px;}
+			}
+			@media (min-width: 992px){
+				div.container{
+					height: 60%;
+					max-width: 55%;
+					padding-bottom: "";
+				}
+				div#first_hr{ top: 0;}
+				div#second_hr{ top: 33px;}
+
+			}
+			@media(min-width: 1199px) and (min-height: 900px){
+				div#first_hr{ top: -30px; }
+				div#second_hr{ top: -25px; }
+			}
+			@media (max-width: 450px){
+					div#first_hr{ top: 215px;}
+					div#second_hr{ top: 350px;}
+					div#recruiters{
+						position: relative;
+						left: 0;
+					}
+					div#business_managers{ left: 60px; }
+				  div.container{ padding-bottom: 900px;}
+
+			}
+			@media (max-height: 367px){
+				div#first_hr{ top: 165px;}
+				div#second_hr{ top: 250px;}
+				div.container{ padding-bottom: 650px;}
 			}
 
 			/* employees */
@@ -243,11 +282,12 @@
 			div#referrals_admin_logo { background: url('images/icons_sprite_3.png') no-repeat -792px -70px; }
 		</style>
 		<script src="scripts/jquery-1.5.1.min.js"></script>
-
+		<link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
+		<link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
 
 	</head>
 	<body>
-		<!--
+		 <!--
 				  launch.htm
 				  evanschambers.com
 									 Created by Jamil Evans on 2011-10-07.
@@ -257,12 +297,12 @@
 			<img src="images/logo_ec_small.png"/>
 			<div id="title">Launchpad</div>
 			<ul>
-				<li><?php echo $userInfo['name'] ?></li>
+				<li><?php echo $userInfo['name']?></li>
 				<li><a href="logout.php">Signout</a></li>
 			</ul>
 			<br style="clear:both" />
 		</header>
-		<div class="container" style="position: relative; left: 10px;">
+		<div class="container" style="position: relative; left: 40px;">
 			<div class="row my-row">
         <div class="col-12 col-md-12 col-lg-1">
         <h2>Employees</h2>
@@ -308,11 +348,11 @@
       </div>
       </div>
 				<?php if (strpos($userRoleNames, "recruiter") !== false) { ?>
-				<div class="row my-row">
+				<div id="first_hr" class="row my-row">
 					<div class="col-12">
 						<hr>
 					</div>
-          <div class="col-12 col-md-12 col-lg-1">
+          <div id="recruiters" class="col-12 col-md-12 col-lg-1">
   					<h2>Recruiters</h2>
           </div>
           <div class="col-12 col-md-12 col-lg-11 my-col">
@@ -347,14 +387,14 @@
           </div>
         </div>
 		</div>
-      <?php }?>
+	<?php }?>
 				<?php if (strpos($userRoleNames, "business-manager") !== false) { ?>
-        <div class="row my-row" style="top: 30px;">
+        <div id="second_hr" class="row my-row">
 					<div class="col-12">
 						<hr>
 					</div>
           <div class="col-12 col-md-12 col-lg-1">
-            <h2>Business Managers</h2>
+            <h2 id="business_managers">Business Managers</h2>
           </div>
           <div class="col-12 col-md-12 col-lg-11 my-col">
             <div class="row">
@@ -426,7 +466,7 @@
 
          </div>
        </div>
-				<?php }?>
+		 <?php }?>
 		</div>
     <footer>
 			<span>EC Launchpad</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -444,48 +484,19 @@
 
 			<script>
 			  var grid = $('div.container');//the entire bootstrap grid
-				var firsthr = $('div.row.my-row')[1];//first divider on in the grid
-				var secondhr = $('div.row.my-row')[2];//second divider in the grid
 				var secondRow = $('div.row')[3];//second row can be business managers or recruiters depending on the role of the user
+				var icons = $('div.col-3.col-lg-2.my-col');
 
 			  const NUM_ROWS = $('div.row.my-row').length;//the number of roles on the screen
-				const CENTER_SCREEN_MARGIN = ['20%', '8%', '12%', '3%'];//margin-top needed when the tab is not in fullscreen
-				const FULLSCREEN_MARGIN = ['40%', '13%', '18%', '10%'];//margin-top needed when the tab is in fullscreen
+				const CENTER_SCREEN_MARGIN = ['15%', '8%', '12%', '3%'];//margin-top needed when the tab is not in fullscreen
+				const FULLSCREEN_MARGIN = ['20%', '13%', '18%', '10%'];//margin-top needed when the tab is in fullscreen
 				const FULLSCREEN_HEIGHT = 900;//height of window in fullscreen
 				const DESKTOP_WIDTH = 992;//width size of window when the grid's height needs to be reduced
-				const TIGHTEN_WIDTH = 1220;//width size of window when the grid's width needs to be reduced
-			  const PHONE_WIDTH = 767;//width size of window when the grid is reduced to fit on a phone
+				const PHONE_WIDTH = 450;
 				const RECRUITER_HEIGHT = 113;//height of the second row of roles when there is only a recruiter role
 			</script>
 
-			<script>
-				tighten(DESKTOP_WIDTH, 'height_constriction');
-				$(window).resize(function(){
-						tighten(DESKTOP_WIDTH, 'height_constriction');
-				});
 
-				tighten(TIGHTEN_WIDTH, 'width_constriction');
-				$(window).resize(function(){
-						tighten(TIGHTEN_WIDTH, 'width_constriction');
-				});
-				/**
-				 * Tightens the width of the grid when the window is
-				 * stretched.
-				 *
-				 * @param tight_width width of window when the height
-				 * of the grid should be constricted and width of window when the
-				 * the grid needs to have its width decreased.
-				 * @param addClass width_constriction class or the height_constriction
-				 * class that shrinks grid according to screen size.
-				 */
-				function tighten(tight_width, addClass){
-					if($(window).width() >= tight_width){
-						$(grid).addClass(addClass);
-					}else{
-						$(grid).removeClass(addClass);
-					}
-				}
-			</script>
 
 			<script>
 			rotateHeader();
@@ -518,20 +529,12 @@
  				  * Formatting the window with a refresh and also when the window resizes.
  					* Adjusting width of grid and position of dividers.
  					*/
+
 					function formatWindow(){
-						if($(window).width() >= PHONE_WIDTH){
-								$(grid).css('width', '65%');
-						}else if($(window).width() < PHONE_WIDTH){
-								$(grid).css('width', '100%');
-						}
-						if($(window).width() < DESKTOP_WIDTH){
-								$(grid).css('padding-bottom', '400px');
-								$(firsthr).css('top', '80px');
-								$(secondhr).css('top','85px');
+						if($(window).width() <= PHONE_WIDTH){
+							  $(icons).addClass('col-6');
 						}else{
-								$(grid).css('padding-bottom', '');
-								$(firsthr).css('top', '');
-								$(secondhr).css('top','33px');
+							  $(icons).removeClass('col-6');
 						}
 					}
 					/**
@@ -540,8 +543,6 @@
 					 */
 					function margin(){
 						if($(window).width() >= DESKTOP_WIDTH && $(window).height() >= FULLSCREEN_HEIGHT){
-							$(firsthr).css('top','-30px');
-							$(secondhr).css('top','-25px');
 							adjustToScreen(FULLSCREEN_MARGIN);
 						}else{
 							formatWindow();
@@ -566,5 +567,6 @@
 						}
 					}
 			</script>
+
 	</body>
 </html>
