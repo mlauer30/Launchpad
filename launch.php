@@ -141,13 +141,16 @@
 				font-weight: normal;
         text-align: center;
 			}
-
       .rotate_header{
 				display: -webkit-transform: rotate(270deg);
 				display: -moz-transform: rotate(270deg);
 				display: -ms-transform: rotate(90deg);
 				display: -o-transform: rotate(90deg);
 				transform: rotate(270deg);
+      }
+      .container{
+        position: relative;
+        left: 36px;
       }
 			.height_constriction{ height: 60%; }
 
@@ -189,7 +192,7 @@
 				padding: 0 30px 1px 30px;
 				width: 100%;
 				position: relative;
-				left: -35px;
+				left: -27px;
       }
 			footer {
 				background-color: #eee;
@@ -206,7 +209,6 @@
 			footer span {
 				color:#333;
 			}
-
 			/* Images sprites */
 			.my-row div.icon_bg {
 				height: 70px;
@@ -215,10 +217,10 @@
 				display:inline-block;
 				clear:right;
 			}
-			@media (max-width: 992px){
+      @media (max-width: 992px){
 				div.container{
 					max-width: 510px;
-					padding-bottom: 500px;
+					padding-bottom: 400px;
 				}
 				div#first_hr{ top: 75px;}
 				div#second_hr{ top: 80px;}
@@ -231,29 +233,33 @@
 				}
 				div#first_hr{ top: 0;}
 				div#second_hr{ top: 33px;}
-
 			}
 			@media(min-width: 1199px) and (min-height: 900px){
 				div#first_hr{ top: -30px; }
 				div#second_hr{ top: -25px; }
 			}
-			@media (max-width: 450px){
+			@media (max-width: 375px){
 					div#first_hr{ top: 215px;}
 					div#second_hr{ top: 350px;}
-					div#recruiters{
+					h2{
 						position: relative;
-						left: 0;
+						left: -20px;
 					}
-					div#business_managers{ left: 60px; }
-				  div.container{ padding-bottom: 900px;}
-
+					hr{
+						position: relative;
+						left: -47px;
+					}
+				  div.container{
+            position: relative;
+            left: 49px;
+						padding-bottom: 900px;
+					}
 			}
-			@media (max-height: 367px){
+			@media (max-height: 375px){
 				div#first_hr{ top: 165px;}
 				div#second_hr{ top: 250px;}
 				div.container{ padding-bottom: 650px;}
 			}
-
 			/* employees */
 			div#ec_mail_logo { background: url('images/icons_sprite_3.png') no-repeat -576px 0;}
 			div#ec_inside_logo { background: url('images/icons_sprite_3.png') no-repeat -430px -70px; }
@@ -262,7 +268,6 @@
 			div#referrals_logo { background: url('images/icons_sprite_3.png') no-repeat -718px -70px; }
 			div#share411_logo { background: url('images/icons_sprite_3.png') no-repeat -650px -70px; }
 			div#watercooler_logo { background: url('images/icons_sprite_3.png') no-repeat -288px -70px; }
-
 			/* bd */
 			div#ec_bd_logo { background: url('images/icons_sprite_3.png') no-repeat 0 -70px; }
 			div#basecamp_logo { background: url('images/icons_sprite_3.png') no-repeat -145px -0; }
@@ -276,7 +281,6 @@
 			/* recruiting */
 			div#ec_recruiting_logo { background: url('images/icons_sprite_3.png') no-repeat -358px 0; }
 			/*div#jobvite_logo { background: url('images/icons_sprite_3.png') no-repeat -288px 0; }*/
-
 			/*#monster_logo { background: url('images/icons_sprite_3.png') no-repeat -218px 0; }*/
 			div#i2s_logo { background: url('images/icons_sprite_3.png') no-repeat -154px -67px; }
 			div#referrals_admin_logo { background: url('images/icons_sprite_3.png') no-repeat -792px -70px; }
@@ -284,7 +288,6 @@
 		<script src="scripts/jquery-1.5.1.min.js"></script>
 		<link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16">
 		<link rel="icon" type="image/png" href="images/favicon.png" sizes="32x32">
-
 	</head>
 	<body>
 		 <!--
@@ -302,7 +305,7 @@
 			</ul>
 			<br style="clear:both" />
 		</header>
-		<div class="container" style="position: relative; left: 40px;">
+		<div class="container">
 			<div class="row my-row">
         <div class="col-12 col-md-12 col-lg-1">
         <h2>Employees</h2>
@@ -473,7 +476,6 @@
 			Version <a href="#">1.0a</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			8 Oct 2011
 		</footer>
-
 		<script>
 				$('div.icon_bg').hover(function(){
 					$(this).parent().parent().addClass('icon_hover');
@@ -481,7 +483,6 @@
 					$(this).parent().parent().removeClass('icon_hover');
 				});
 	    </script>
-
 			<script>
 			  var grid = $('div.container');//the entire bootstrap grid
 				var secondRow = $('div.row')[3];//second row can be business managers or recruiters depending on the role of the user
@@ -492,12 +493,9 @@
 				const FULLSCREEN_MARGIN = ['20%', '13%', '18%', '10%'];//margin-top needed when the tab is in fullscreen
 				const FULLSCREEN_HEIGHT = 900;//height of window in fullscreen
 				const DESKTOP_WIDTH = 992;//width size of window when the grid's height needs to be reduced
-				const PHONE_WIDTH = 450;
+				const PHONE_WIDTH = 375;
 				const RECRUITER_HEIGHT = 113;//height of the second row of roles when there is only a recruiter role
 			</script>
-
-
-
 			<script>
 			rotateHeader();
 			$(window).resize(function(){
@@ -529,7 +527,6 @@
  				  * Formatting the window with a refresh and also when the window resizes.
  					* Adjusting width of grid and position of dividers.
  					*/
-
 					function formatWindow(){
 						if($(window).width() <= PHONE_WIDTH){
 							  $(icons).addClass('col-6');
@@ -567,6 +564,5 @@
 						}
 					}
 			</script>
-
 	</body>
 </html>
